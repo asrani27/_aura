@@ -60,15 +60,6 @@
     <!-- Peta -->
     <div id="peta"></div>
 
-    <div class="form-group">
-        <label for="status">Status</label>
-        <select name="status" class="form-control" required>
-            <option value="">-pilih-</option>
-            <option value="Belum Di Proses">Belum Di Proses</option>
-            <option value="Di Proses">Di Proses</option>
-            <option value="Selesai">Selesai</option>
-        </select>
-    </div>
     </div>
     <!-- /.box-body -->
     <div class="box-footer">

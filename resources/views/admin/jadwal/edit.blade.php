@@ -1,17 +1,20 @@
 @extends('layouts.app')
 @push('css')
 <!-- Leaflet CSS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css">
 <style>
-    #peta { height: 400px; }
+    #peta {
+        height: 400px;
+    }
 </style>
 @endpush
 
 @section('content')
 <div class="row">
     <div class="col-md-12">
-        <a href="/admin/data/jadwal" class="btn btn-flat btn-warning"><i class="fa fa-backward"></i> Kembali</a> <br /> <br />
+        <a href="/admin/data/jadwal" class="btn btn-flat btn-warning"><i class="fa fa-backward"></i> Kembali</a> <br />
+        <br />
     </div>
 </div>
 
@@ -23,13 +26,14 @@
     </div>
 
     <div class="form-group">
-         <label for="pegawai_id">Pilih Pegawai</label>
-            <select name="pegawai_id" class="form-control" required>
-                <option value="">-pilih-</option>
-                @foreach ($pegawai as $peg )
-                    <option value="{{ $peg->id }}" {{ $data->pegawai_id == $peg->id ? 'selected' : '' }}>{{ $peg->nama }}</option>
-                @endforeach
-            </select>
+        <label for="pegawai_id">Pilih Pegawai</label>
+        <select name="pegawai_id" class="form-control" required>
+            <option value="">-pilih-</option>
+            @foreach ($pegawai as $peg )
+            <option value="{{ $peg->id }}" {{ $data->pegawai_id == $peg->id ? 'selected' : '' }}>{{ $peg->nama }}
+            </option>
+            @endforeach
+        </select>
     </div>
 
     <div class="form-group">
@@ -57,18 +61,11 @@
     <!-- Peta -->
     <div id="peta"></div>
 
-    <div class="form-group">
-        <label for="status">Status</label>
-        <select name="status" class="form-control" required>
-            <option value="">-pilih-</option>
-            <option value="Belum Di Proses" {{ $data->status == 'Belum Di Proses' ? 'selected' : '' }}>Belum Di Proses</option>
-            <option value="Di Proses" {{ $data->status == 'Di Proses' ? 'selected' : '' }}>Di Proses</option>
-            <option value="Selesai" {{ $data->status == 'Selesai' ? 'selected' : '' }}>Selesai</option>
-        </select>
-    </div>
+
 
     <div class="box-footer">
-        <button type="submit" class="btn btn-primary pull-right" onclick="return confirm('Yakin sudah sesuai?');"><i class="fa fa-save"></i> Update Data</button>
+        <button type="submit" class="btn btn-primary pull-right" onclick="return confirm('Yakin sudah sesuai?');"><i
+                class="fa fa-save"></i> Update Data</button>
     </div>
 </form>
 @endsection
@@ -79,7 +76,7 @@
 <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>
 
 <script>
-// Inisialisasi peta
+    // Inisialisasi peta
 var map = L.map('peta').setView([{{ $data->latitude }}, {{ $data->longitude }}], 13); // Gunakan data koordinat yang ada
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 

@@ -84,7 +84,6 @@
 
     <!-- Peta -->
     <div id="peta"></div>
-
     </div>
     <!-- /.box-body -->
     <div class="box-footer">

@@ -88,7 +88,6 @@
     <div id="peta"></div>
 
 
-
     <div class="box-footer">
         <button type="submit" class="btn btn-primary pull-right" onclick="return confirm('Yakin sudah sesuai?');"><i
                 class="fa fa-save"></i> Update Data</button>

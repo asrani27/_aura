@@ -93,6 +93,8 @@ Route::get('admin/data/jadwal/delete/{id}', [JadwalController::class, 'hapus']);
 
 Route::get('pegawai/data/jadwal', [JadwalkegiatanController::class, 'index']);
 
+Route::get('pegawai/data/proses/{id}', [JadwalkegiatanController::class, 'proses']);
+Route::get('pegawai/data/proses/{id}/ya/{proses}', [JadwalkegiatanController::class, 'ya']);
 
 
 Route::get('pimpinan/data/pimpinan', [PimpinanController::class, 'index']);

@@ -51,7 +51,7 @@
 
                   <table width="100%">
                     <tr>
-                      <td> {{$item->status}} </td>
+                      <td> {{$item->status == null ? 'Belum Di proses':''}} </td>
                       <td> : {{\carbon\Carbon::parse($item->created_at)->format('d M Y H:i:s')}}</td>
                     </tr>
                     @if (count($item->tracking) != 0)

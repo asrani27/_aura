@@ -51,6 +51,32 @@
         <input type="text" class="form-control" name="keterangan" value="{{ $data->keterangan }}" required>
     </div>
 
+
+    <div class="form-group">
+        <label for="kecamatan">Kecamatan</label>
+        <select name="kecamatan" class="form-control" required>
+            <option value="">-pilih-</option>
+            <option value="Banjarmasin Selatan" {{ $data->kecamatan == 'Banjarmasin Selatan' ? 'selected' : '' }}>Banjarmasin Selatan</option>
+            <option value="Banjarmasin Timur" {{ $data->kecamatan == 'Banjarmasin Timur' ? 'selected' : '' }}>Banjarmasin Timur</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+    <label for="kelurahan">Kelurahan</label>
+        <select name="kelurahan" class="form-control" required>
+            <option value="">-pilih-</option>
+            <option value="Basirih Selatan" {{ $data->kelurahan == 'Basirih Selatan' ? 'selected' : '' }}>Basirih Selatan</option>
+            <option value="Kelayan Dalam" {{ $data->kelurahan == 'Kelayan Dalam' ? 'selected' : '' }}>Kelayan Dalam</option>
+            <option value="Kelayan Tengah" {{ $data->kelurahan == 'Kelayan Tengah' ? 'selected' : '' }}>Kelayan Tengah</option>
+            <option value="Kelayan Timur" {{ $data->kelurahan == 'Kelayan Timur' ? 'selected' : '' }}>Kelayan Timur</option>
+            <option value="Kelayan Selatan" {{ $data->kelurahan == 'Kelayan Selatan' ? 'selected' : '' }}>Kelayan Selatan</option>
+            <option value="Mantuil" {{ $data->kelurahan == 'Mantuil' ? 'selected' : '' }}>Mantuil</option>
+            <option value="Benua Anyar" {{ $data->kelurahan == 'Benua Anyar' ? 'selected' : '' }}>Benua Anyar</option>
+            <option value="Karang Mekar" {{ $data->kelurahan == 'Karang Mekar' ? 'selected' : '' }}>Karang Mekar</option>
+            <option value="Kuripan" {{ $data->kelurahan == 'Kuripan' ? 'selected' : '' }}>Kuripan</option>
+        </select>
+    </div>
+
     <div class="form-group">
         <label for="lokasi">Lokasi</label>
         <input type="text" class="form-control" id="lokasi" name="lokasi" value="{{ $data->lokasi }}" readonly required>

@@ -51,6 +51,31 @@
     </div>
 
     <div class="form-group">
+        <label for="kecamatan">Kecamatan</label>
+        <select name="kecamatan" class="form-control" required>
+            <option value="">-pilih-</option>
+            <option value="Banjarmasin Selatan">Banjarmasin Selatan</option>
+            <option value="Banjarmasin Timur">Banjarmasin Timur</option>
+        </select>
+    </div>
+
+     <div class="form-group">
+        <label for="kelurahan">Kelurahan</label>
+        <select name="kelurahan" class="form-control" required>
+            <option value="">-pilih-</option>
+            <option value="Basirih Selatan">Basirih Selatan</option>
+            <option value="Kelayan Dalam">Kelayan Dalam</option>
+            <option value="Kelayan Tengah">Kelayan Tengah</option>
+            <option value="Kelayan Timur">Kelayan Timur</option>
+            <option value="Kelayan Selatan">Kelayan Selatan</option>
+            <option value="Mantuil">Mantuil</option>
+            <option value="Benua Anyar">Benua Anyar</option>
+            <option value="Karang Mekar">Karang Mekar</option>
+            <option value="Kuripan">Kuripan</option>
+        </select>
+    </div>
+
+    <div class="form-group">
         <label for="lokasi">Lokasi</label>
         <input type="text" class="form-control" id="lokasi" name="lokasi" readonly required>
         <input type="hidden" id="latitude" name="latitude" required>

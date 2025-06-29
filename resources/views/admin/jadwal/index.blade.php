@@ -38,6 +38,8 @@
               <th style="border: 1px solid black">Waktu Mulai</th>
               <th style="border: 1px solid black">Waktu Selesai</th>
               <th style="border: 1px solid black">Keterangan</th>
+              <th style="border: 1px solid black">Kecamatan</th>
+              <th style="border: 1px solid black">Kelurahan</th>
               <th style="border: 1px solid black">Lokasi</th>
               <th style="border: 1px solid black">Status</th>
               <th style="border: 1px solid black">Aksi</th>
@@ -50,6 +52,8 @@
               <td style="border: 1px solid black">{{$item->waktu_mulai}}</td>
               <td style="border: 1px solid black">{{$item->waktu_selesai}}</td>
               <td style="border: 1px solid black">{{$item->keterangan}}</td>
+              <td style="border: 1px solid black">{{$item->kecamatan}}</td>
+              <td style="border: 1px solid black">{{$item->kelurahan}}</td>
               <td style="border: 1px solid black">{{$item->lokasi}}</td>
               <td style="border: 1px solid black" width="20%">
 

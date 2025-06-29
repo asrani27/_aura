@@ -23,7 +23,8 @@
         <h3 class="box-title">Jadwal Kegitan Door To Door </h3>
 
         <div class="box-tools">
-          <a href="/admin/data/jadwal/create" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
+          <a href="/admin/data/jadwal/create" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah
+            Data</a>
         </div>
       </div>
       <!-- /.box-header -->
@@ -50,7 +51,23 @@
               <td style="border: 1px solid black">{{$item->waktu_selesai}}</td>
               <td style="border: 1px solid black">{{$item->keterangan}}</td>
               <td style="border: 1px solid black">{{$item->lokasi}}</td>
-              <td style="border: 1px solid black">{{$item->status}}</td>
+              <td style="border: 1px solid black" width="20%">
+
+                <table width="100%">
+                  <tr>
+                    <td> {{$item->status}} </td>
+                    <td> : {{\carbon\Carbon::parse($item->created_at)->format('d M Y H:i:s')}}</td>
+                  </tr>
+                  @if (count($item->tracking) != 0)
+                  @foreach ($item->tracking as $key => $tracking)
+                  <tr>
+                    <td>{{$tracking->status}}</td>
+                    <td>: {{\Carbon\Carbon::parse($item->created_at)->format('d M Y H:i:s')}}</td>
+                  </tr>
+                  @endforeach
+                  @endif
+                </table>
+              </td>
               <td style="border: 1px solid black;display">
                 <a href="/admin/data/jadwal/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i
                     class="fa fa-edit"></i></a>

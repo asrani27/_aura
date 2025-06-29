@@ -25,7 +25,6 @@
                   Waktu Selesai : <br />
                   Keterangan : <br />
                   Lokasi : <br />
-                  Status : <br />
                 </td>
                 <td>
                   {{$data->tgl_kegiatan}} <br />
@@ -34,7 +33,6 @@
                   {{$data->keterangan}} <br />
                   <a href="https://www.google.com/maps?q={{ urlencode($data->lokasi) }}" target="_blank">Lihat
                     Lokasi</a> <br />
-                  {{$data->status}} <br />
                 </td>
               </tr>
 

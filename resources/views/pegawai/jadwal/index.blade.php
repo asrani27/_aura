@@ -47,7 +47,23 @@
                   <a href="https://www.google.com/maps?q={{ urlencode($item->lokasi) }}" target="_blank">Lihat
                     Lokasi</a>
                 </td>
-                <td style="border: 1px solid black">{{$item->status}}</td>
+                <td style="border: 1px solid black">
+
+                  <table width="100%">
+                    <tr>
+                      <td> {{$item->status}} </td>
+                      <td> : {{\carbon\Carbon::parse($item->created_at)->format('d M Y H:i:s')}}</td>
+                    </tr>
+                    @if (count($item->tracking) != 0)
+                    @foreach ($item->tracking as $key => $tracking)
+                    <tr>
+                      <td>{{$tracking->status}}</td>
+                      <td>: {{\Carbon\Carbon::parse($item->created_at)->format('d M Y H:i:s')}}</td>
+                    </tr>
+                    @endforeach
+                    @endif
+                  </table>
+                </td>
                 <td style="border: 1px solid black">
                   <a href="/pegawai/data/proses/{{$item->id}}" class="btn btn-sm btn-primary">Proses</a>
                 </td>

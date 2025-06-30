@@ -115,6 +115,7 @@ Route::middleware(['auth', 'role:pimpinan'])->group(function () {
     Route::get('admin/data/laporan/okb/print', [LaporanController::class, 'print_okb']);
     Route::get('pimpinan/data/laporan/spt', [LaporanController::class, 'laporan_spt']);
     Route::get('admin/data/laporan/spt/print', [LaporanController::class, 'print_spt']);
+
     Route::get('pimpinan/data/laporan/monitoring', [LaporanController::class, 'laporan_monitoring']);
     Route::get('admin/data/laporan/monitoring/print', [LaporanController::class, 'print_monitoring']);
 });

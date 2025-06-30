@@ -11,6 +11,7 @@ class Pegawai extends Model
     protected $table = 'pegawai';
     protected $guarded = ['id'];
     public $timestamps = false;
+    
     public function okb()
     {
         return $this->hasMany(OKB::class, 'pegawai_id');

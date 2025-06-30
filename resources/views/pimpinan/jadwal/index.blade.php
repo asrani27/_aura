@@ -4,7 +4,11 @@
 @endpush
 @section('content')
 
+<<<<<<< HEAD
 <form method="get" action="/pimpinan/data/jadwal/cari">
+=======
+<form method="get" action="/admin/data/jadwal/cari">
+>>>>>>> dabfcc7 (f)
   @csrf
   <div class="input-group input-group-md hidden-xs" style="width: 300px;">
     <input type="text" name="cari" class="form-control pull-right" placeholder="cari data">
@@ -21,11 +25,14 @@
       <div class="box-header">
         <i class="ion ion-clipboard"></i>
         <h3 class="box-title">Jadwal Kegitan Door To Door </h3>
+<<<<<<< HEAD
 
         <div class="box-tools">
 
 
         </div>
+=======
+>>>>>>> dabfcc7 (f)
       </div>
       <!-- /.box-header -->
       <div class="box-body table-responsive no-padding">
@@ -42,7 +49,11 @@
               <th style="border: 1px solid black">Kelurahan</th>
               <th style="border: 1px solid black">Lokasi</th>
               <th style="border: 1px solid black">Status</th>
+<<<<<<< HEAD
 
+=======
+              <th style="border: 1px solid black">Aksi</th>
+>>>>>>> dabfcc7 (f)
             </tr>
             @foreach ($data as $key => $item)
             <tr>
@@ -72,7 +83,16 @@
                   @endif
                 </table>
               </td>
+<<<<<<< HEAD
 
+=======
+              <td style="border: 1px solid black;display">
+                <a href="/admin/data/jadwal/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i
+                    class="fa fa-edit"></i></a>
+                <a href="/admin/data/jadwal/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"
+                  onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i></a>
+              </td>
+>>>>>>> dabfcc7 (f)
             </tr>
             @endforeach
           </tbody>

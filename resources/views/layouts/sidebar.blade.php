@@ -75,16 +75,16 @@
         </span>
       </a>
       <ul class="treeview-menu">
-        <li><a href="/admin/data/laporan/pegawaipns" target="_blank"><i class="fa fa-circle-o"></i> Laporan Pegawai
+        <li><a href="/pimpinan/data/laporan/pegawaipns" target="_blank"><i class="fa fa-circle-o"></i> Laporan Pegawai
             PNS</a>
         </li>
 
-        <li><a href="/admin/data/laporan/pegawaitekon" target="_blank"><i class="fa fa-circle-o"></i> Laporan Pegawai
+        <li><a href="/pimpinan/data/laporan/pegawaitekon" target="_blank"><i class="fa fa-circle-o"></i> Laporan Pegawai
             TEKON</a>
         </li>
-        <li><a href="/admin/data/laporan/okb" target="_blank"><i class="fa fa-circle-o"></i> Laporan OKB</a></li>
-        <li><a href="/admin/data/laporan/spt" target="_blank"><i class="fa fa-circle-o"></i> Laporan SPT</a></li>
-        <li><a href="/admin/data/laporan/monitoring" target="_blank"><i class="fa fa-circle-o"></i> Laporan
+        <li><a href="/pimpinan/data/laporan/okb" target="_blank"><i class="fa fa-circle-o"></i> Laporan OKB</a></li>
+        <li><a href="/pimpinan/data/laporan/spt" target="_blank"><i class="fa fa-circle-o"></i> Laporan SPT</a></li>
+        <li><a href="/pimpinan/data/laporan/monitoring" target="_blank"><i class="fa fa-circle-o"></i> Laporan
             Monitoring</a></li>
       </ul>
     </li>

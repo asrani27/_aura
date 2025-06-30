@@ -102,8 +102,19 @@ Route::middleware(['auth', 'role:pegawai'])->group(function () {
 });
 
 
-Route::middleware(['auth', 'role:pegawai'])->group(function () {
+Route::middleware(['auth', 'role:pimpinan'])->group(function () {
     Route::get('pimpinan/data/pimpinan', [PimpinanController::class, 'index']);
+    Route::get('pimpinan/data/jadwalkegiatan', [PimpinanController::class, 'jadwal']);
+    Route::get('pimpinan/data/jadwal/cari', [PimpinanController::class, 'carijadwal']);
     Route::get('pimpinan/data/monitoring', [MonitoringController::class, 'index']);
     Route::get('pimpinan/data/monitoring/print/{id}', [MonitoringController::class, 'print']);
+    Route::get('pimpinan/data/laporan/pegawai', [LaporanController::class, 'laporan_pegawai']);
+    Route::get('pimpinan/data/laporan/pegawaipns', [LaporanController::class, 'laporan_pegawaipns']);
+    Route::get('pimpinan/data/laporan/pegawaitekon', [LaporanController::class, 'laporan_pegawaitekon']);
+    Route::get('pimpinan/data/laporan/okb', [LaporanController::class, 'laporan_okb']);
+    Route::get('admin/data/laporan/okb/print', [LaporanController::class, 'print_okb']);
+    Route::get('pimpinan/data/laporan/spt', [LaporanController::class, 'laporan_spt']);
+    Route::get('admin/data/laporan/spt/print', [LaporanController::class, 'print_spt']);
+    Route::get('pimpinan/data/laporan/monitoring', [LaporanController::class, 'laporan_monitoring']);
+    Route::get('admin/data/laporan/monitoring/print', [LaporanController::class, 'print_monitoring']);
 });

@@ -102,15 +102,10 @@ Route::middleware(['auth', 'role:pegawai'])->group(function () {
 });
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
 Route::middleware(['auth', 'role:pimpinan'])->group(function () {
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 8ffd8bf (f)
-Route::middleware(['auth', 'role:pegawai'])->group(function () {
->>>>>>> dabfcc7 (f)
+
     Route::get('pimpinan/data/pimpinan', [PimpinanController::class, 'index']);
     Route::get('pimpinan/data/jadwalkegiatan', [PimpinanController::class, 'jadwal']);
     Route::get('pimpinan/data/jadwal/cari', [PimpinanController::class, 'carijadwal']);

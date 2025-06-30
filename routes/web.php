@@ -77,14 +77,13 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/jadwal/edit/{id}', [JadwalController::class, 'edit']);
     Route::post('admin/data/jadwal/edit/{id}', [JadwalController::class, 'update']);
     Route::get('admin/data/jadwal/delete/{id}', [JadwalController::class, 'hapus']);
+});
 
+Route::middleware(['auth', 'role:pegawai'])->group(function () {
     Route::get('pegawai/data/jadwal', [JadwalkegiatanController::class, 'index']);
 
     Route::get('pegawai/data/proses/{id}', [JadwalkegiatanController::class, 'proses']);
     Route::get('pegawai/data/proses/{id}/ya/{proses}', [JadwalkegiatanController::class, 'ya']);
-});
-
-Route::middleware(['auth', 'role:pegawai'])->group(function () {
     Route::get('pegawai/data/okb', [OKBController::class, 'index']);
     Route::get('pegawai/data/okb/create', [OKBController::class, 'tambah']);
     Route::post('pegawai/data/okb/create', [OKBController::class, 'simpan']);

@@ -30,6 +30,7 @@
     <h3 style="text-align: center">LAPORAN MONITORING <br>
 
     </h3>
+    <strong>Tanggal : {{\Carbon\Carbon::parse($tanggal)->format('d M Y')}}</strong><br />
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
@@ -41,33 +42,32 @@
         @php
         $no =1;
         @endphp
-
-        @foreach ($data as $key => $item)
-        @if ($item->jumlah_input == 0)
-
-        @else
-
+        @forelse ($data as $index => $pegawai)
+        @if ($pegawai->okb->count() > 0)
         <tr>
-            <td>{{1 + $key}}</td>
-            <td>{{$item->nama}}</td>
-            <td style="text-align: center">{{$item->jumlah_input}}</td>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ $pegawai->nama }}</td>
+            <td>{{ $pegawai->okb->count() }}</td>
             <td>
-                @if ($item->jumlah_input == 0)
-                --
-                @else
+                @if($pegawai->okb->isNotEmpty())
                 <ul>
-                    @foreach ($item->okb as $item2)
-                    <li>{{\Carbon\Carbon::parse($item2->created_at)->translatedFormat('d F Y')}} - Nama pemilik :
-                        {{$item2->nama}}
-                    </li>
+                    @foreach ($pegawai->okb as $okb)
+                    <li>{{\Carbon\Carbon::parse($okb->created_at)->format('d M Y')}} - Nama Pemilik : {{ $okb->nama ??
+                        '-' }} ({{ $okb->nopol }})</li>
                     @endforeach
                 </ul>
+                @else
+                Tidak ada data
                 @endif
             </td>
-
         </tr>
         @endif
-        @endforeach
+
+        @empty
+        <tr>
+            <td colspan="4">Tidak ada data pegawai</td>
+        </tr>
+        @endforelse
     </table>
 
     <table width="100%">

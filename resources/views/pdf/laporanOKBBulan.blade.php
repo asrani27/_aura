@@ -29,8 +29,7 @@
     <hr>
     <h3 style="text-align: center">LAPORAN OBJEK KENDARAAN BERMOTOR <br>
 
-    </h3>
-    <strong>Tanggal : {{\Carbon\Carbon::parse($tanggal)->format('d M Y')}}</strong><br />
+    </h3><strong> Bulan: {{ \Carbon\Carbon::createFromDate($tahun, $bulan, 1)->translatedFormat('F Y') }}</strong><br />
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>

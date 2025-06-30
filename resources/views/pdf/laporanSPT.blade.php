@@ -29,7 +29,7 @@
     <hr>
     <h3 style="text-align: center">LAPORAN SURAT PERINTAH TUGAS <br>
 
-    </h3>
+    </h3> <strong>Tanggal : {{\Carbon\Carbon::parse($tanggal)->format('d M Y')}}</strong><br />
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>

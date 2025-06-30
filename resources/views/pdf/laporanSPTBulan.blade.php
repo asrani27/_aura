@@ -27,22 +27,18 @@
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN OBJEK KENDARAAN BERMOTOR <br>
+    <h3 style="text-align: center">LAPORAN SURAT PERINTAH TUGAS <br>
 
-    </h3>
-    <strong>Tanggal : {{\Carbon\Carbon::parse($tanggal)->format('d M Y')}}</strong><br />
+    </h3><strong> Bulan: {{ \Carbon\Carbon::createFromDate($tahun, $bulan, 1)->translatedFormat('F Y') }}</strong><br />
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th>No</th>
-            <th>Tanggal</th>
-            <th>Nama</th>
-            <th>Alamat</th>
-            <th>Nopol</th>
-            <th>Roda</th>
-            <th>Nama Sesuai STNK</th>
-            <th>Masa Berlaku</th>
-            <th>NO HP</th>
+            <th>Nomor</th>
+            <th>Keperluan</th>
+            <th>Tujuan</th>
+            <th>Tanggal Masuk</th>
+            <th>Tanggal Berlaku</th>
         </tr>
         @php
         $no =1;
@@ -51,14 +47,11 @@
         @foreach ($data as $key => $item)
         <tr>
             <td>{{$key + 1}}</td>
-            <td>{{\Carbon\Carbon::parse($item->created_at)->format('d M Y')}}</td>
-            <td>{{$item->nama}}</td>
-            <td>{{$item->alamat}}</td>
-            <td>{{$item->nopol}}</td>
-            <td>{{$item->roda}}</td>
-            <td>{{$item->namapemiliksesuaistnk}}</td>
-            <td>{{$item->masalakupajak}}</td>
-            <td>{{$item->nohp}}</td>
+            <td>{{$item->nomor}}</td>
+            <td>{{$item->keperluan}}</td>
+            <td>{{$item->tujuan}}</td>
+            <td>{{$item->tgl_masuk}}</td>
+            <td>{{$item->tgl_berlaku}}</td>
         </tr>
         @endforeach
     </table>

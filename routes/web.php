@@ -80,8 +80,11 @@ Route::get('admin/data/laporan/pegawai', [LaporanController::class, 'laporan_peg
 Route::get('admin/data/laporan/pegawaipns', [LaporanController::class, 'laporan_pegawaipns']);
 Route::get('admin/data/laporan/pegawaitekon', [LaporanController::class, 'laporan_pegawaitekon']);
 Route::get('admin/data/laporan/okb', [LaporanController::class, 'laporan_okb']);
+Route::get('admin/data/laporan/okb/print', [LaporanController::class, 'print_okb']);
 Route::get('admin/data/laporan/spt', [LaporanController::class, 'laporan_spt']);
+Route::get('admin/data/laporan/spt/print', [LaporanController::class, 'print_spt']);
 Route::get('admin/data/laporan/monitoring', [LaporanController::class, 'laporan_monitoring']);
+Route::get('admin/data/laporan/monitoring/print', [LaporanController::class, 'print_monitoring']);
 
 Route::get('admin/data/jadwal/cari', [JadwalController::class, 'cari']);
 Route::get('admin/data/jadwal', [JadwalController::class, 'index']);

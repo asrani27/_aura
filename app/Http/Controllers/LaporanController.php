@@ -46,29 +46,104 @@ class LaporanController extends Controller
 
     public function laporan_okb()
     {
-        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_okb.pdf';
-        $data = OKB::get();
-        $pdf = Pdf::loadView('pdf.laporanOKB', compact('data'))->setOption([
-            'enable_remote' => true,
-        ])->setPaper([0, 0, 800, 1300], 'landscape');
-        return $pdf->stream($filename);
+        return view('admin.laporan.okb');
+    }
+    public function print_OKB()
+    {
+        if (request()->get('button') == 'tanggal') {
+            $tanggal = request()->get('tanggal');
+
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_OKB.pdf';
+            $data = OKB::whereDate('created_at', $tanggal)->get();
+
+
+            $pdf = Pdf::loadView('pdf.laporanOKB', compact('data', 'tanggal'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper('a4', 'landscape');
+            return $pdf->stream($filename);
+        } else {
+            $bulan = request()->get('bulan');
+            $tahun = request()->get('tahun');
+
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_OKB.pdf';
+            $data = OKB::whereMonth('created_at', $bulan)->whereYear('created_at', $tahun)->get();
+
+
+            $pdf = Pdf::loadView('pdf.laporanOKBBulan', compact('data', 'bulan', 'tahun'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper('a4', 'landscape');
+            return $pdf->stream($filename);
+        }
     }
     public function laporan_spt()
     {
-        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_spt.pdf';
-        $data = Spt::get();
-        $pdf = Pdf::loadView('pdf.laporanSPT', compact('data'))->setOption([
-            'enable_remote' => true,
-        ])->setPaper([0, 0, 800, 1000], 'landscape');
-        return $pdf->stream($filename);
+        return view('admin.laporan.spt');
+    }
+    public function print_SPT()
+    {
+        if (request()->get('button') == 'tanggal') {
+            $tanggal = request()->get('tanggal');
+
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
+            $data = Spt::whereDate('created_at', $tanggal)->get();
+
+
+            $pdf = Pdf::loadView('pdf.laporanSPT', compact('data', 'tanggal'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper('a4', 'landscape');
+            return $pdf->stream($filename);
+        } else {
+            $bulan = request()->get('bulan');
+            $tahun = request()->get('tahun');
+
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
+            $data = Spt::whereMonth('created_at', $bulan)->whereYear('created_at', $tahun)->get();
+
+
+            $pdf = Pdf::loadView('pdf.laporanSPTBulan', compact('data', 'bulan', 'tahun'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper('a4', 'landscape');
+            return $pdf->stream($filename);
+        }
     }
     public function laporan_monitoring()
     {
-        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_monitoring.pdf';
-        $data = Pegawai::get();
-        $pdf = Pdf::loadView('pdf.laporanMonitoring', compact('data'))->setOption([
-            'enable_remote' => true,
-        ])->setPaper('a4', 'landscape');
-        return $pdf->stream($filename);
+        return view('admin.laporan.monitoring');
+    }
+    public function print_monitoring()
+    {
+        if (request()->get('button') == 'tanggal') {
+            $tanggal = request()->get('tanggal');
+
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_monitoring.pdf';
+            $data = Pegawai::with(['okb' => function ($query) use ($tanggal) {
+                if ($tanggal) {
+                    $query->whereDate('created_at', $tanggal);
+                }
+            }])->get();
+
+
+            $pdf = Pdf::loadView('pdf.laporanMonitoring', compact('data', 'tanggal'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper('a4', 'landscape');
+            return $pdf->stream($filename);
+        } else {
+            $bulan = request()->get('bulan');
+            $tahun = request()->get('tahun');
+
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_monitoring.pdf';
+            $data = Pegawai::with(['okb' => function ($query) use ($bulan, $tahun) {
+                if ($bulan && $tahun) {
+                    $query->whereMonth('created_at', $bulan)
+                        ->whereYear('created_at', $tahun);
+                }
+            }])->get();
+
+
+            $pdf = Pdf::loadView('pdf.laporanMonitoringBulan', compact('data', 'bulan', 'tahun'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper('a4', 'landscape');
+            return $pdf->stream($filename);
+        }
     }
 }

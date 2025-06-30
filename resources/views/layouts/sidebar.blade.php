@@ -63,6 +63,8 @@
     <li class="header">MENU UTAMA</li>
     <li class="{{ (request()->is('pimpinan')) ? 'active' : '' }}"><a href="/pimpinan"><i class="fa fa-home"></i>
         <span>Beranda</span></a></li>
+    <li class="{{ (request()->is('pimpinan/data/jadwalkegiatan*')) ? 'active' : '' }}"><a href="/pimpinan/data/jadwalkegiatan"><i
+          class="fa fa-calendar"></i> <span>Jadwal Kegiatan</span></a></li>
     <li class="{{ (request()->is('pimpinan/data/monitoring*')) ? 'active' : '' }}"><a href="/pimpinan/data/monitoring"><i
           class="fa fa-file"></i> <span>Monitoring</span></a></li>
      <li class="treeview">

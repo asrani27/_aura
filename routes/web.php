@@ -73,6 +73,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/laporan/jadwal/print', [LaporanController::class, 'print_jadwal']);
     Route::get('admin/data/laporan/statuspajak', [LaporanController::class, 'laporan_statuspajak']);
     Route::get('admin/data/laporan/statuspajak/print', [LaporanController::class, 'print_statuspajak']);
+    Route::get('admin/data/laporan/realisasikunjungan', [LaporanController::class, 'laporan_realisasikunjungan']);
+    Route::get('admin/data/laporan/realisasikunjungan/print', [LaporanController::class, 'print_realisasikunjungan']);
 
     Route::get('admin/data/jadwal/cari', [JadwalController::class, 'cari']);
     Route::get('admin/data/jadwal', [JadwalController::class, 'index']);
@@ -81,7 +83,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/jadwal/edit/{id}', [JadwalController::class, 'edit']);
     Route::post('admin/data/jadwal/edit/{id}', [JadwalController::class, 'update']);
     Route::get('admin/data/jadwal/delete/{id}', [JadwalController::class, 'hapus']);
-    
 });
 
 Route::middleware(['auth', 'role:pegawai'])->group(function () {

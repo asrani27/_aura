@@ -82,6 +82,38 @@ class LaporanController extends Controller
     {
         return view('admin.laporan.spt');
     }
+    public function print_realisasikunjungan()
+    {
+        dd('d');
+        if (request()->get('button') == 'tanggal') {
+            $tanggal = request()->get('tanggal');
+
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
+            $data = Spt::whereDate('created_at', $tanggal)->get();
+
+
+            $pdf = Pdf::loadView('pdf.laporanSPT', compact('data', 'tanggal'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper('a4', 'landscape');
+            return $pdf->stream($filename);
+        } else {
+            $bulan = request()->get('bulan');
+            $tahun = request()->get('tahun');
+
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
+            $data = Spt::whereMonth('created_at', $bulan)->whereYear('created_at', $tahun)->get();
+
+
+            $pdf = Pdf::loadView('pdf.laporanSPTBulan', compact('data', 'bulan', 'tahun'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper('a4', 'landscape');
+            return $pdf->stream($filename);
+        }
+    }
+    public function laporan_realisasikunjungan()
+    {
+        return view('admin.laporan.realisasi');
+    }
     public function print_SPT()
     {
         if (request()->get('button') == 'tanggal') {
@@ -151,12 +183,12 @@ class LaporanController extends Controller
         }
     }
 
-     public function laporan_jadwal()
+    public function laporan_jadwal()
     {
         return view('admin.laporan.jadwal');
     }
 
-     public function print_jadwal()
+    public function print_jadwal()
     {
         if (request()->get('button') == 'tanggal') {
             $tanggal = request()->get('tanggal');
@@ -190,7 +222,7 @@ class LaporanController extends Controller
         return view('admin.laporan.statuspajak');
     }
 
-     public function print_statuspajak()
+    public function print_statuspajak()
     {
         if (request()->get('button') == 'tanggal') {
             $tanggal = request()->get('tanggal');
@@ -217,5 +249,4 @@ class LaporanController extends Controller
             return $pdf->stream($filename);
         }
     }
-
 }

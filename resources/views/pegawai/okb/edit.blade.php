@@ -26,6 +26,19 @@
                 <div class="box-body">
 
                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Berdasarkan Jadwal & Lokasi</label>
+                        <div class="col-sm-10">
+                            <select name="jadwal_id" class="form-control" required>
+                                <option value="">-pilih-</option>
+                                @foreach ($jadwal as $item)
+                                <option value="{{$item->id}}" {{$data->jadwal_id == $item->id ?
+                                    'selected':''}}>{{\Carbon\Carbon::parse($item->tgl_kegiatan)->format('d M
+                                    Y')}} - Lokasi : {{$item->lokasi}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">Pelaksanaan kegiatan</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="pelaksanaankegiatan"

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jadwal;
 use Carbon\Carbon;
 use App\Models\OKB;
 use Illuminate\Http\Request;
@@ -29,7 +30,8 @@ class OKBController extends Controller
     }
     public function tambah()
     {
-        return view('pegawai.okb.create');
+        $jadwal = Jadwal::where('pegawai_id', Auth::user()->pegawai->id)->get();
+        return view('pegawai.okb.create', compact('jadwal'));
     }
 
     public function simpan(Request $req)
@@ -51,8 +53,10 @@ class OKBController extends Controller
 
     public function edit($id)
     {
+
         $data = OKB::find($id);
-        return view('pegawai.okb.edit', compact('data'));
+        $jadwal = Jadwal::where('pegawai_id', Auth::user()->pegawai->id)->get();
+        return view('pegawai.okb.edit', compact('data', 'jadwal'));
     }
     public function update(Request $req, $id)
     {

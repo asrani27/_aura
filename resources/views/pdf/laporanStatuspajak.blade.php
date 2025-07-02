@@ -27,47 +27,31 @@
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN MONITORING <br>
+    <h3 style="text-align: center">LAPORAN STATUS PAJAK <br>
 
     </h3>
-    <strong>Tanggal : {{\Carbon\Carbon::parse($tanggal)->format('d M Y')}}</strong><br />
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th>No</th>
-            <th>Nama Pegawai</th>
-            <th>Jumlah Input OKB</th>
-            <th>Detail Yang Di Input</th>
+            <th>Nopol</th>
+            <th>Nama Pemilik STNK</th>
+            <th>Alamat</th>
+            <th> status Pajak</th>
         </tr>
         @php
         $no =1;
         @endphp
-        @forelse ($data as $index => $pegawai)
-        @if ($pegawai->okb->count() > 0)
-        <tr>
-            <td>{{ $index + 1 }}</td>
-            <td>{{ $pegawai->nama }}</td>
-            <td>{{ $pegawai->okb->count() }}</td>
-            <td>
-                @if($pegawai->okb->isNotEmpty())
-                <ul>
-                    @foreach ($pegawai->okb as $okb)
-                    <li>{{\Carbon\Carbon::parse($okb->created_at)->format('d M Y')}} - Nama Pemilik : {{ $okb->nama ??
-                        '-' }} ({{ $okb->nopol }})</li>
-                    @endforeach
-                </ul>
-                @else
-                Tidak ada data
-                @endif
-            </td>
-        </tr>
-        @endif
 
-        @empty
+        @foreach ($data as $key => $item)
         <tr>
-            <td colspan="4">Tidak ada data pegawai</td>
+            <td>{{$key + 1}}</td>
+            <td>{{$item->nopol}}</td>
+            <td>{{$item->alamat}}</td>
+            <td>{{$item->namapemiliksesuaistnk}}</td>
+            <td>{{$item->masalakupajak < \Carbon\Carbon::now()->format('Y-m-d') ? 'Tidak Berlaku':'Berlaku'}}</td>
         </tr>
-        @endforelse
+        @endforeach
     </table>
 
     <table width="100%">

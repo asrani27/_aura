@@ -14,7 +14,11 @@
       </div>
       <!-- /.box-header -->
       <div class="box-body">
+        @if(Auth::user()->roles == 'pimpinan')
+        <form method="get" action="/pimpinan/data/laporan/okb/print">
+          @else
         <form method="get" action="/admin/data/laporan/okb/print">
+          @endif
           @csrf
 
           Per Tanggal <br />
@@ -22,7 +26,12 @@
           <button type="submit" class="btn btn-sm btn-primary" name="button" value="tanggal">Print</button>
         </form>
         <hr>
+         @if(Auth::user()->roles == 'pimpinan')
+         
+        <form method="get" action="/pimpinan/data/laporan/okb/print">
+          @else
         <form method="get" action="/admin/data/laporan/okb/print">
+          @endif
           @csrf
           Per Bulan <br />
           <select name="bulan">

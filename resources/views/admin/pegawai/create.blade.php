@@ -94,6 +94,7 @@
                         <div class="col-sm-10">
                              <select name="jabatan" class="form-control" required>
                                 <option value="">-pilih-</option>
+                                <option value="KepalaUnitUPPD1BJM">KEPALA UNIT UPPD BANJARMASIN 1</option>
                                 <option value="AnalisisKerja">ANALISIS KERJA</option>
                                 <option value="PengadministrasianPajak">PENGADMINISTRASIAN PAJAK</option>
                                 <option value="PengelolaDataPelayananPajak">PENGELOLA DATA PELAYANAN PAJAK</option>

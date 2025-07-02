@@ -27,7 +27,8 @@
               <th style="border: 1px solid black">Nopol</th>
               <th style="border: 1px solid black">Roda</th>
               <th style="border: 1px solid black">Nama Sesuai STNK</th>
-              <th style="border: 1px solid black">Masa Berlaku</th>
+              <th style="border: 1px solid black">Masa Berlaku Pajak</th>
+              <th style="border: 1px solid black">Status Pajak</th>
               <th style="border: 1px solid black">No HP</th>
               <th style="border: 1px solid black">Dokumentasi</th>
               <th style="border: 1px solid black">Aksi</th>
@@ -42,6 +43,12 @@
               <td style="border: 1px solid black">{{$item->roda}}</td>
               <td style="border: 1px solid black">{{$item->namapemiliksesuaistnk}}</td>
               <td style="border: 1px solid black">{{$item->masalakupajak}}</td>
+              <td style="border: 1px solid black">
+                @if ($item->masalakupajak < \Carbon\Carbon::now()->format('Y-m-d'))
+                    <span class="label label-danger">Tidak Berlaku</span>
+                @else
+                    <span class="label label-success"> Berlaku</span>
+                @endif
               <td style="border: 1px solid black">{{$item->nohp}}</td>
               <td style="border: 1px solid black">
                 <a href="/storage/uploads/{{$item->dokumentasi}}" target="_blank">lihat</a>

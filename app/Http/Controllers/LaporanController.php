@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\OKB;
 use Carbon\Carbon;
-use App\Models\Pegawai;
+use App\Models\OKB;
 use App\Models\Spt;
+use App\Models\Jadwal;
+use App\Models\Pegawai;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Auth;
 
 class LaporanController extends Controller
 {
@@ -48,6 +50,7 @@ class LaporanController extends Controller
     {
         return view('admin.laporan.okb');
     }
+
     public function print_OKB()
     {
         if (request()->get('button') == 'tanggal') {
@@ -106,6 +109,7 @@ class LaporanController extends Controller
             return $pdf->stream($filename);
         }
     }
+
     public function laporan_monitoring()
     {
         return view('admin.laporan.monitoring');
@@ -146,4 +150,72 @@ class LaporanController extends Controller
             return $pdf->stream($filename);
         }
     }
+
+     public function laporan_jadwal()
+    {
+        return view('admin.laporan.jadwal');
+    }
+
+     public function print_jadwal()
+    {
+        if (request()->get('button') == 'tanggal') {
+            $tanggal = request()->get('tanggal');
+
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
+            $data = Jadwal::whereDate('created_at', $tanggal)->get();
+
+
+            $pdf = Pdf::loadView('pdf.laporanJadwal', compact('data', 'tanggal'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper('a4', 'landscape');
+            return $pdf->stream($filename);
+        } else {
+            $bulan = request()->get('bulan');
+            $tahun = request()->get('tahun');
+
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
+            $data = Jadwal::whereMonth('created_at', $bulan)->whereYear('created_at', $tahun)->get();
+
+
+            $pdf = Pdf::loadView('pdf.laporanJadwalBulan', compact('data', 'bulan', 'tahun'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper('a4', 'landscape');
+            return $pdf->stream($filename);
+        }
+    }
+
+
+    public function laporan_statuspajak()
+    {
+        return view('admin.laporan.statuspajak');
+    }
+
+     public function print_statuspajak()
+    {
+        if (request()->get('button') == 'tanggal') {
+            $tanggal = request()->get('tanggal');
+
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
+            $data = OKB::whereDate('created_at', $tanggal)->get();
+
+
+            $pdf = Pdf::loadView('pdf.laporanStatuspajak', compact('data', 'tanggal'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper('a4', 'landscape');
+            return $pdf->stream($filename);
+        } else {
+            $bulan = request()->get('bulan');
+            $tahun = request()->get('tahun');
+
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
+            $data = OKB::whereMonth('created_at', $bulan)->whereYear('created_at', $tahun)->get();
+
+
+            $pdf = Pdf::loadView('pdf.laporanStatuspajakBulan', compact('data', 'bulan', 'tahun'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper('a4', 'landscape');
+            return $pdf->stream($filename);
+        }
+    }
+
 }

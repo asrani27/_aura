@@ -10,16 +10,11 @@
     <div class="box box-primary">
       <div class="box-header">
         <i class="ion ion-clipboard"></i>
-        <h3 class="box-title">Laporan Data SPT</h3>
+        <h3 class="box-title">Laporan Data Jadwal</h3>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
-          @if(Auth::user()->roles == 'pimpinan')
-        <form method="get" action="/pimpinan/data/laporan/spt/print">
-          @else
-        <form method="get" action="/admin/data/laporan/spt/print">
-          @endif
-          
+        <form method="get" action="/admin/data/laporan/jadwal/print">
           @csrf
 
           Per Tanggal <br />
@@ -27,12 +22,7 @@
           <button type="submit" class="btn btn-sm btn-primary" name="button" value="tanggal">Print</button>
         </form>
         <hr>
-          @if(Auth::user()->roles == 'pimpinan')
-        <form method="get" action="/pimpinan/data/laporan/spt/print">
-          @else
-        <form method="get" action="/admin/data/laporan/spt/print">
-          @endif
-          
+        <form method="get" action="/admin/data/laporan/jadwal/print">
           @csrf
           Per Bulan <br />
           <select name="bulan">

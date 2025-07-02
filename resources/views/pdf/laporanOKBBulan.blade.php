@@ -41,6 +41,7 @@
             <th>Roda</th>
             <th>Nama Sesuai STNK</th>
             <th>Masa Berlaku</th>
+            <th>Status Berlaku</th>
             <th>NO HP</th>
         </tr>
         @php
@@ -57,6 +58,7 @@
             <td>{{$item->roda}}</td>
             <td>{{$item->namapemiliksesuaistnk}}</td>
             <td>{{$item->masalakupajak}}</td>
+            <td>{{$item->masalakupajak < \Carbon\Carbon::now()->format('Y-m-d') ? 'Tidak Berlaku':'Berlaku'}}</td>
             <td>{{$item->nohp}}</td>
         </tr>
         @endforeach

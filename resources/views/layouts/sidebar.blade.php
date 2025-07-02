@@ -30,8 +30,10 @@
         </li>
         <li><a href="/admin/data/laporan/okb" target="_blank"><i class="fa fa-circle-o"></i> Laporan OKB</a></li>
         <li><a href="/admin/data/laporan/spt" target="_blank"><i class="fa fa-circle-o"></i> Laporan SPT</a></li>
-        <li><a href="/admin/data/laporan/monitoring" target="_blank"><i class="fa fa-circle-o"></i> Laporan
-            Monitoring</a></li>
+        <li><a href="/admin/data/laporan/monitoring" target="_blank"><i class="fa fa-circle-o"></i> Laporan Monitoring</a></li>
+        <li><a href="/admin/data/laporan/jadwal" target="_blank"><i class="fa fa-circle-o"></i> Laporan Jadwal Kegiatan</a></li>
+        <li><a href="/admin/data/laporan/statuspajak" target="_blank"><i class="fa fa-circle-o"></i> Laporan Pajak Kendaraan</a></li>
+         <li><a href="/admin/data/laporan/realisasikunjungan" target="_blank"><i class="fa fa-circle-o"></i> Laporan Realisasi Kunjungan</a></li>
       </ul>
     </li>
     <li><a href="/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
@@ -84,8 +86,8 @@
         </li>
         <li><a href="/pimpinan/data/laporan/okb" target="_blank"><i class="fa fa-circle-o"></i> Laporan OKB</a></li>
         <li><a href="/pimpinan/data/laporan/spt" target="_blank"><i class="fa fa-circle-o"></i> Laporan SPT</a></li>
-        <li><a href="/pimpinan/data/laporan/monitoring" target="_blank"><i class="fa fa-circle-o"></i> Laporan
-            Monitoring</a></li>
+        <li><a href="/pimpinan/data/laporan/monitoring" target="_blank"><i class="fa fa-circle-o"></i> Laporan Monitoring</a></li>
+        <li><a href="/pimpinan/data/laporan/jadwal" target="_blank"><i class="fa fa-circle-o"></i> Laporan Jadwal Kegiatan</a></li>
       </ul>
     </li>
     <li><a href="/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>

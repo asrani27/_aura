@@ -38,7 +38,7 @@
                 <ul>
                   @foreach ($item->okb as $item2)
                   <li>{{\Carbon\Carbon::parse($item2->created_at)->translatedFormat('d F Y')}} - {{$item2->nama}} -
-                    <a href="/admin/data/monitoring/print/{{$item2->id}}" class="btn btn-danger btn-xs" target="_blank">
+                    <a href="/pimpinan/data/monitoring/print/{{$item2->id}}" class="btn btn-danger btn-xs" target="_blank">
                       Lihat
                       Laporan</a>
                   </li>

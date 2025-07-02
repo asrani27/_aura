@@ -27,47 +27,35 @@
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN MONITORING <br>
+    <h3 style="text-align: center">LAPORAN JADWAL KEGIATAN <br>
 
-    </h3>
-    <strong>Tanggal : {{\Carbon\Carbon::parse($tanggal)->format('d M Y')}}</strong><br />
+    </h3><strong>Tanggal : {{\Carbon\Carbon::parse($tanggal)->format('d M Y')}}</strong><br />
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th>No</th>
+            <th>Tanggal</th>
             <th>Nama Pegawai</th>
-            <th>Jumlah Input OKB</th>
-            <th>Detail Yang Di Input</th>
+            <th>Waktu Mulai</th>
+            <th>Waktu Selesai</th>
+            <th>Lokasi</th>
+            <th>Status</th>
         </tr>
         @php
         $no =1;
         @endphp
-        @forelse ($data as $index => $pegawai)
-        @if ($pegawai->okb->count() > 0)
-        <tr>
-            <td>{{ $index + 1 }}</td>
-            <td>{{ $pegawai->nama }}</td>
-            <td>{{ $pegawai->okb->count() }}</td>
-            <td>
-                @if($pegawai->okb->isNotEmpty())
-                <ul>
-                    @foreach ($pegawai->okb as $okb)
-                    <li>{{\Carbon\Carbon::parse($okb->created_at)->format('d M Y')}} - Nama Pemilik : {{ $okb->nama ??
-                        '-' }} ({{ $okb->nopol }})</li>
-                    @endforeach
-                </ul>
-                @else
-                Tidak ada data
-                @endif
-            </td>
-        </tr>
-        @endif
 
-        @empty
+        @foreach ($data as $key => $item)
         <tr>
-            <td colspan="4">Tidak ada data pegawai</td>
+            <td>{{$key + 1}}</td>
+            <td>{{\Carbon\Carbon::parse($item->tgl_kegiatan)->format('d M Y')}}</td>
+            <td>{{$item->pegawai->nama}}
+            <td>{{$item->waktu_mulai}}</td>
+            <td>{{$item->waktu_selesai}}</td>
+            <td>{{$item->lokasi}}</td>
+            <td>{{$item->tracking->last() == null ? 'belum selesai': $item->tracking->last()->status}}</td>
         </tr>
-        @endforelse
+        @endforeach
     </table>
 
     <table width="100%">

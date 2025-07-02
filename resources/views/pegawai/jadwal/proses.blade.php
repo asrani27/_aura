@@ -52,7 +52,7 @@
               <td>No</td>
               <td>Keterangan</td>
               <td>Waktu</td>
-              <td>#</td>
+              <td>Aksi</td>
             </tr>
             <tr>
               <td width="10px">1</td>

@@ -69,6 +69,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/laporan/spt/print', [LaporanController::class, 'print_spt']);
     Route::get('admin/data/laporan/monitoring', [LaporanController::class, 'laporan_monitoring']);
     Route::get('admin/data/laporan/monitoring/print', [LaporanController::class, 'print_monitoring']);
+    Route::get('admin/data/laporan/jadwal', [LaporanController::class, 'laporan_jadwal']);
+    Route::get('admin/data/laporan/jadwal/print', [LaporanController::class, 'print_jadwal']);
+    Route::get('admin/data/laporan/statuspajak', [LaporanController::class, 'laporan_statuspajak']);
+    Route::get('admin/data/laporan/statuspajak/print', [LaporanController::class, 'print_statuspajak']);
 
     Route::get('admin/data/jadwal/cari', [JadwalController::class, 'cari']);
     Route::get('admin/data/jadwal', [JadwalController::class, 'index']);
@@ -77,6 +81,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/jadwal/edit/{id}', [JadwalController::class, 'edit']);
     Route::post('admin/data/jadwal/edit/{id}', [JadwalController::class, 'update']);
     Route::get('admin/data/jadwal/delete/{id}', [JadwalController::class, 'hapus']);
+    
 });
 
 Route::middleware(['auth', 'role:pegawai'])->group(function () {
@@ -115,10 +120,9 @@ Route::middleware(['auth', 'role:pimpinan'])->group(function () {
     Route::get('pimpinan/data/laporan/pegawaipns', [LaporanController::class, 'laporan_pegawaipns']);
     Route::get('pimpinan/data/laporan/pegawaitekon', [LaporanController::class, 'laporan_pegawaitekon']);
     Route::get('pimpinan/data/laporan/okb', [LaporanController::class, 'laporan_okb']);
-    Route::get('admin/data/laporan/okb/print', [LaporanController::class, 'print_okb']);
+    Route::get('pimpinan/data/laporan/okb/print', [LaporanController::class, 'print_okb']);
     Route::get('pimpinan/data/laporan/spt', [LaporanController::class, 'laporan_spt']);
-    Route::get('admin/data/laporan/spt/print', [LaporanController::class, 'print_spt']);
-
+    Route::get('pimpinan/data/laporan/spt/print', [LaporanController::class, 'print_spt']);
     Route::get('pimpinan/data/laporan/monitoring', [LaporanController::class, 'laporan_monitoring']);
-    Route::get('admin/data/laporan/monitoring/print', [LaporanController::class, 'print_monitoring']);
+    Route::get('pimpinan/data/laporan/monitoring/print', [LaporanController::class, 'print_monitoring']);
 });

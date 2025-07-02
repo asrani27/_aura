@@ -1,18 +1,19 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OKBController;
 use App\Http\Controllers\SptController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\JadwalController;
-use App\Http\Controllers\JadwalkegiatanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PegawaiController;
-use App\Http\Controllers\MonitoringController;
 use App\Http\Controllers\PimpinanController;
+use App\Http\Controllers\MonitoringController;
+use App\Http\Controllers\JadwalkegiatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,7 @@ use App\Http\Controllers\PimpinanController;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::get('/', [LoginController::class, 'index']);
 
 //menghubungkan menjalankan
 Route::get('login', [LoginController::class, 'index'])->name('login');

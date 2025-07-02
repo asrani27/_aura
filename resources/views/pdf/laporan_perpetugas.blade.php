@@ -50,7 +50,7 @@
             <td>{{\Carbon\Carbon::parse($item->created_at)->translatedFormat('l, d F Y')}}</td>
             <td>{{$item->lokasi}}</td>
             <td>{{$item->keterangan}}</td>
-            <td>{{$item->status}}</td>
+            <td>{{$item->tracking->last() == null ? 'belum selesai': $item->tracking->last()->status}}</td>
         </tr>
         @endforeach
     </table>

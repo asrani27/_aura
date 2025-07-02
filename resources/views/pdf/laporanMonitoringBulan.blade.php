@@ -37,7 +37,7 @@
             <th>No</th>
             <th>Nama Pegawai</th>
             <th>Jumlah Input OKB</th>
-            <th>Detail Yg Di Input</th>
+            <th>Detail Yang Di Input</th>
         </tr>
         @php
         $no =1;

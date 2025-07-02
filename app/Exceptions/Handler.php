@@ -2,8 +2,10 @@
 
 namespace App\Exceptions;
 
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Auth\Access\AuthorizationException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
@@ -44,5 +46,19 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+    public function render($request, Throwable $exception)
+    {
+        // Redirect jika AuthorizationException (misal policy/gate)
+        if ($exception instanceof AuthorizationException) {
+            return redirect('/');
+        }
+
+        // Redirect jika HttpException 403 (misal middleware)
+        if ($exception instanceof HttpException && $exception->getStatusCode() === 403) {
+            return redirect('/');
+        }
+
+        return parent::render($request, $exception);
     }
 }

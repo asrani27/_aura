@@ -34,11 +34,9 @@ Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 Route::get('/logout', [LogoutController::class, 'logout']);
 
-Route::get('admin', [HomeController::class, 'admin']);
-Route::get('pegawai', [HomeController::class, 'pegawai']);
-Route::get('pimpinan', [HomeController::class, 'pimpinan']);
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('admin', [HomeController::class, 'admin']);
     Route::get('admin/data/user', [UserController::class, 'index']);
     Route::get('admin/data/user/create', [UserController::class, 'tambah']);
     Route::post('admin/data/user/create', [UserController::class, 'simpan']);
@@ -86,6 +84,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:pegawai'])->group(function () {
+    Route::get('pegawai', [HomeController::class, 'pegawai']);
     Route::get('pegawai/data/jadwal', [JadwalkegiatanController::class, 'index']);
 
     Route::get('pegawai/data/proses/{id}', [JadwalkegiatanController::class, 'proses']);
@@ -126,4 +125,5 @@ Route::middleware(['auth', 'role:pimpinan'])->group(function () {
     Route::get('pimpinan/data/laporan/spt/print', [LaporanController::class, 'print_spt']);
     Route::get('pimpinan/data/laporan/monitoring', [LaporanController::class, 'laporan_monitoring']);
     Route::get('pimpinan/data/laporan/monitoring/print', [LaporanController::class, 'print_monitoring']);
+    Route::get('pimpinan', [HomeController::class, 'pimpinan']);
 });

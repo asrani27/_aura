@@ -48,14 +48,11 @@
         @foreach ($data as $key => $item)
         <tr>
             <td>{{$key + 1}}</td>
-            <td>{{\Carbon\Carbon::parse($item->created_at)->format('d M Y')}}</td>
-            <td>{{$item->nama}}</td>
-            <td>{{$item->alamat}}</td>
-            <td>{{$item->nopol}}</td>
-            <td>{{$item->roda}}</td>
-            <td>{{$item->namapemiliksesuaistnk}}</td>
-            <td>{{$item->masalakupajak}}</td>
-            <td>{{$item->nohp}}</td>
+            <td>{{\Carbon\Carbon::parse($item->created_at)->translatedFormat('l, d F Y')}}</td>
+            <td>{{$item->pegawai == null ? null: $item->pegawai->nama}}</td>
+            <td>{{$item->lokasi}}</td>
+            <td>{{$item->keterangan}}</td>
+            <td>{{$item->okb == null ? null : $item->okb->hasil}}</td>
         </tr>
         @endforeach
     </table>

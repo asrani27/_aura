@@ -84,7 +84,12 @@ class LaporanController extends Controller
     }
     public function print_realisasikunjungan()
     {
-        dd('d');
+        $data = Jadwal::get();
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
+        $pdf = Pdf::loadView('pdf.laporan_realisasi', compact('data'))->setOption([
+            'enable_remote' => true,
+        ])->setPaper('a4', 'landscape');
+        return $pdf->stream($filename);
         if (request()->get('button') == 'tanggal') {
             $tanggal = request()->get('tanggal');
 

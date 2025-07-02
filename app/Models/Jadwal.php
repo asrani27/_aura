@@ -15,6 +15,10 @@ class Jadwal extends Model
     {
         return $this->belongsTo(Pegawai::class, 'pegawai_id');
     }
+    public function okb()
+    {
+        return $this->hasOne(OKB::class, 'jadwal_id');
+    }
     public function tracking()
     {
         return $this->hasMany(JadwalTracking::class, 'jadwal_id');

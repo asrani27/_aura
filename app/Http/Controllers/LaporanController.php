@@ -82,38 +82,54 @@ class LaporanController extends Controller
     {
         return view('admin.laporan.spt');
     }
+    public function print_perpetugas()
+    {
+        $pegawai_id = request()->get('pegawai_id');
+        $data = Jadwal::where('pegawai_id', $pegawai_id)->get();
+        $pegawai = Pegawai::find($pegawai_id)->nama;
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_perpetugas.pdf';
+        $pdf = Pdf::loadView('pdf.laporan_perpetugas', compact('data', 'pegawai'))->setOption([
+            'enable_remote' => true,
+        ])->setPaper('a4', 'landscape');
+        return $pdf->stream($filename);
+    }
+    public function laporan_perpetugas()
+    {
+        $data = Pegawai::get();
+        return view('admin.laporan.perpetugas', compact('data'));
+    }
     public function print_realisasikunjungan()
     {
         $data = Jadwal::get();
-        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_realisasi.pdf';
         $pdf = Pdf::loadView('pdf.laporan_realisasi', compact('data'))->setOption([
             'enable_remote' => true,
         ])->setPaper('a4', 'landscape');
         return $pdf->stream($filename);
-        if (request()->get('button') == 'tanggal') {
-            $tanggal = request()->get('tanggal');
+        // if (request()->get('button') == 'tanggal') {
+        //     $tanggal = request()->get('tanggal');
 
-            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
-            $data = Spt::whereDate('created_at', $tanggal)->get();
-
-
-            $pdf = Pdf::loadView('pdf.laporanSPT', compact('data', 'tanggal'))->setOption([
-                'enable_remote' => true,
-            ])->setPaper('a4', 'landscape');
-            return $pdf->stream($filename);
-        } else {
-            $bulan = request()->get('bulan');
-            $tahun = request()->get('tahun');
-
-            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
-            $data = Spt::whereMonth('created_at', $bulan)->whereYear('created_at', $tahun)->get();
+        //     $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
+        //     $data = Spt::whereDate('created_at', $tanggal)->get();
 
 
-            $pdf = Pdf::loadView('pdf.laporanSPTBulan', compact('data', 'bulan', 'tahun'))->setOption([
-                'enable_remote' => true,
-            ])->setPaper('a4', 'landscape');
-            return $pdf->stream($filename);
-        }
+        //     $pdf = Pdf::loadView('pdf.laporanSPT', compact('data', 'tanggal'))->setOption([
+        //         'enable_remote' => true,
+        //     ])->setPaper('a4', 'landscape');
+        //     return $pdf->stream($filename);
+        // } else {
+        //     $bulan = request()->get('bulan');
+        //     $tahun = request()->get('tahun');
+
+        //     $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
+        //     $data = Spt::whereMonth('created_at', $bulan)->whereYear('created_at', $tahun)->get();
+
+
+        //     $pdf = Pdf::loadView('pdf.laporanSPTBulan', compact('data', 'bulan', 'tahun'))->setOption([
+        //         'enable_remote' => true,
+        //     ])->setPaper('a4', 'landscape');
+        //     return $pdf->stream($filename);
+        // }
     }
     public function laporan_realisasikunjungan()
     {

@@ -73,6 +73,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/laporan/realisasikunjungan', [LaporanController::class, 'laporan_realisasikunjungan']);
     Route::get('admin/data/laporan/realisasikunjungan/print', [LaporanController::class, 'print_realisasikunjungan']);
 
+    Route::get('admin/data/laporan/perpetugas', [LaporanController::class, 'laporan_perpetugas']);
+    Route::get('admin/data/laporan/perpetugas/print', [LaporanController::class, 'print_perpetugas']);
+
     Route::get('admin/data/jadwal/cari', [JadwalController::class, 'cari']);
     Route::get('admin/data/jadwal', [JadwalController::class, 'index']);
     Route::get('admin/data/jadwal/create', [JadwalController::class, 'tambah']);

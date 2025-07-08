@@ -20,11 +20,11 @@
     <div class="box box-primary">
       <div class="box-header">
         <i class="ion ion-clipboard"></i>
-        <h3 class="box-title">Jadwal Kegitan Door To Door </h3>
+        <h3 class="box-title">Jadwal Kegitan Door To Door .</h3>
 
         <!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
-          <table class="table table-hover">
+          <table class="table table-hover" id="example1">
             <tbody>
               <tr style="background-color:#FFD700">
                 <th style="border: 1px solid black">No</th>

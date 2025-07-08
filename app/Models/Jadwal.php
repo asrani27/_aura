@@ -17,7 +17,7 @@ class Jadwal extends Model
     }
     public function okb()
     {
-        return $this->hasOne(OKB::class, 'jadwal_id');
+        return $this->hasMany(OKB::class, 'jadwal_id');
     }
     public function tracking()
     {

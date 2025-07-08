@@ -29,8 +29,7 @@
     <hr>
     <h3 style="text-align: center">LAPORAN OBJEK KENDARAAN BERMOTOR <br>
 
-    </h3>
-    <strong>Tanggal : {{\Carbon\Carbon::parse($tanggal)->format('d M Y')}}</strong><br />
+    </h3><strong> Tahun: {{ $tahun }}</strong><br />
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
@@ -41,7 +40,7 @@
             <th>Nopol</th>
             <th>Roda</th>
             <th>Nama Sesuai STNK</th>
-            <th>Masa Berlaku Pajak</th>
+            <th>Masa Berlaku</th>
             <th>NO HP</th>
             <th>Status Kendaraan Bermotor</th>
         </tr>

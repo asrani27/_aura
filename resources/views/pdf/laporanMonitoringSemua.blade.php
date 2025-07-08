@@ -27,42 +27,47 @@
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN OBJEK KENDARAAN BERMOTOR <br>
+    <h3 style="text-align: center">LAPORAN MONITORING <br>
 
     </h3>
-    <strong>Tanggal : {{\Carbon\Carbon::parse($tanggal)->format('d M Y')}}</strong><br />
+    {{--<strong>Tanggal : {{\Carbon\Carbon::parse($tanggal)->format('d M Y')}}</strong><br />--}}
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th>No</th>
-            <th>Tanggal</th>
-            <th>Nama</th>
-            <th>Alamat</th>
-            <th>Nopol</th>
-            <th>Roda</th>
-            <th>Nama Sesuai STNK</th>
-            <th>Masa Berlaku Pajak</th>
-            <th>NO HP</th>
-            <th>Status Kendaraan Bermotor</th>
+            <th>Nama Pegawai</th>
+            <th>Jumlah Input OKB</th>
+            <th>Detail Yang Di Input</th>
         </tr>
         @php
         $no =1;
         @endphp
-
-        @foreach ($data as $key => $item)
+        @forelse ($data as $index => $pegawai)
+        @if ($pegawai->okb->count() > 0)
         <tr>
-            <td>{{$key + 1}}</td>
-            <td>{{\Carbon\Carbon::parse($item->created_at)->format('d M Y')}}</td>
-            <td>{{$item->nama}}</td>
-            <td>{{$item->alamat}}</td>
-            <td>{{$item->nopol}}</td>
-            <td>{{$item->roda}}</td>
-            <td>{{$item->namapemiliksesuaistnk}}</td>
-            <td>{{$item->masalakupajak}}</td>
-            <td>{{$item->nohp}}</td>
-            <td>{{$item->statusmotor}}</td>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ $pegawai->nama }}</td>
+            <td>{{ $pegawai->okb->count() }}</td>
+            <td>
+                @if($pegawai->okb->isNotEmpty())
+                <ul>
+                    @foreach ($pegawai->okb as $okb)
+                    <li>{{\Carbon\Carbon::parse($okb->created_at)->format('d M Y')}} - Nama Pemilik : {{ $okb->nama ??
+                        '-' }} ({{ $okb->nopol }})</li>
+                    @endforeach
+                </ul>
+                @else
+                Tidak ada data
+                @endif
+            </td>
         </tr>
-        @endforeach
+        @endif
+
+        @empty
+        <tr>
+            <td colspan="4">Tidak ada data pegawai</td>
+        </tr>
+        @endforelse
     </table>
 
     <table width="100%">

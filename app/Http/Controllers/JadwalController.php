@@ -58,4 +58,12 @@ class JadwalController extends Controller
         $data = Jadwal::find($id)->delete();
         return back();
     }
+
+    public function cari()
+    {
+        $cari = request()->get('cari');
+        $data = Jadwal::where('nama', 'LIKE', '%' . $cari . '%')->paginate(10);
+        return view('admin.pegawai.index', compact('data'));
+    }
+
 }

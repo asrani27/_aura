@@ -4,7 +4,7 @@
 @endpush
 @section('content')
 
-<form method="get" action="/admin/data/jadwal/cari">
+{{-- <form method="get" action="/admin/data/jadwal/cari">
   @csrf
   <div class="input-group input-group-md hidden-xs" style="width: 300px;">
     <input type="text" name="cari" class="form-control pull-right" placeholder="cari data">
@@ -13,7 +13,7 @@
       <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
     </div>
   </div>
-</form>
+</form> --}}
 
 <div class="row">
   <div class="col-md-12">
@@ -28,9 +28,9 @@
         </div>
       </div>
       <!-- /.box-header -->
-      <div class="box-body table-responsive no-padding">
-        <table class="table table-hover">
-          <tbody>
+      <div class="box-body table-responsive">
+        <table class="table table-hover" id="example1">
+          <thead>
             <tr style="background-color:#FFD700">
               <th style="border: 1px solid black">No</th>
               <th style="border: 1px solid black">Tanggal</th>
@@ -44,6 +44,8 @@
               <th style="border: 1px solid black">Status</th>
               <th style="border: 1px solid black">Aksi</th>
             </tr>
+          </thead>
+          <tbody>
             @foreach ($data as $key => $item)
             <tr>
               <td style="border: 1px solid black">{{1 + $key}}</td>

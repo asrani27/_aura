@@ -35,6 +35,7 @@
         <tr>
             <th>No</th>
             <th>Nomor</th>
+            <th>Nama Pegawai</th>
             <th>Keperluan</th>
             <th>Tujuan</th>
             <th>Tanggal Masuk</th>
@@ -48,6 +49,7 @@
         <tr>
             <td>{{$key + 1}}</td>
             <td>{{$item->nomor}}</td>
+            <td>{{$item->pegawai->nama}}</td>
             <td>{{$item->keperluan}}</td>
             <td>{{$item->tujuan}}</td>
             <td>{{$item->tgl_masuk}}</td>

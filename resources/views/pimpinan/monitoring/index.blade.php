@@ -24,7 +24,7 @@
               <th style="border: 1px solid black">No</th>
               <th style="border: 1px solid black">Nama Pegawai</th>
               <th style="border: 1px solid black">Jumlah Input OKB</th>
-              <th style="border: 1px solid black">Detail Yg Di Input</th>
+              <th style="border: 1px solid black">Detail Yang Di Input</th>
             </tr>
             @foreach ($pegawai as $key => $item)
             <tr>

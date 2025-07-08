@@ -10,25 +10,19 @@
     <div class="box box-primary">
       <div class="box-header">
         <i class="ion ion-clipboard"></i>
-        <h3 class="box-title">Laporan Rekapitulasi Kegiatan Per Petugas</h3>
+        <h3 class="box-title">Laporan Rekapitulasi Perwilayah</h3>
       </div>
+
+     
+
       <!-- /.box-header -->
       <div class="box-body">
-   @if(Auth::user()->roles == 'pimpinan')
-        <form method="get" action="/pimpinan/data/laporan/perpetugas/print" target="_blank">
+         @if(Auth::user()->roles == 'pimpinan')
+        <a href="/pimpinan/data/laporan/perwilayah/print" class="btn btn-sm btn-primary">Print Semua Data</a>
           @else
-        <form method="get" action="/admin/data/laporan/perpetugas/print" target="_blank">
+        <a href="/admin/data/laporan/perwilayah/print" class="btn btn-sm btn-primary">Print Semua Data</a>
         @endif
-          @csrf
-          <select class="form-control" name="pegawai_id">
-            <option value="">-pilih-</option> {{-- Ini hanya satu kali --}}
-              @foreach ($data as $item)
-             <option value="{{ $item->id }}">{{ $item->nama }}</option>
-            @endforeach
-          </select>
-          <br />
-          <button type="submit" class="btn btn-sm btn-primary">Print</a>
-        </form>
+
         {{-- @if(Auth::user()->roles == 'pimpinan')
         <form method="get" action="/pimpinan/data/laporan/monitoring/print">
           @else

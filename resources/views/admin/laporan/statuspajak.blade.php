@@ -54,6 +54,30 @@
           </select>
           <button type="submit" class="btn btn-sm btn-primary" name="button" value="bulan">Print</button>
         </form>
+       <hr>
+           Per tahun <br />
+         @if(Auth::user()->roles == 'pimpinan')
+         
+        <form method="get" action="/pimpinan/data/laporan/statuspajak/print_tahun">
+          @else
+        <form method="get" action="/admin/data/laporan/statuspajak/print_tahun">
+          @endif
+          @csrf
+          <select name="tahun">
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+          </select>
+          <button type="submit" class="btn btn-sm btn-primary" name="button" value="bulan">Print</button>
+        </form>
+      
+        
+      <hr>
+        Semua Data <br />
+         @if(Auth::user()->roles == 'pimpinan')
+        <a href="/pimpinan/data/laporan/statuspajak/print_semua" class="btn btn-sm btn-primary">Print Semua Data</a>
+          @else
+        <a href="/admin/data/laporan/statuspajak/print_semua" class="btn btn-sm btn-primary">Print Semua Data</a>
+        @endif
       </div>
       <!-- /.box-body -->
     </div>

@@ -14,6 +14,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="/tema/bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/tema/bower_components/Ionicons/css/ionicons.min.css">
   @stack('css')
+  
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/tema/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="/tema/dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="/tema/dist/css/skins/_all-skins.min.css">
 
@@ -184,10 +187,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- jQuery 3 -->
 <script src="/tema/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/tema/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/tema/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/tema/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script src="/tema/dist/js/adminlte.min.js"></script>
 <script>
 @include('layouts.notif')
 </script>
 @stack('js')
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
 </body>
 </html>

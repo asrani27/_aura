@@ -27,23 +27,16 @@
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN OBJEK KENDARAAN BERMOTOR <br>
+    <h3 style="text-align: center">LAPORAN REKAPITULASI PER WILAYAH <br>
 
-    </h3>
-    <strong>Tanggal : {{\Carbon\Carbon::parse($tanggal)->format('d M Y')}}</strong><br />
+    {{--</h3><strong>Tanggal : {{\Carbon\Carbon::parse($tanggal)->format('d M Y')}}</strong><br />--}}
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th>No</th>
-            <th>Tanggal</th>
-            <th>Nama</th>
-            <th>Alamat</th>
-            <th>Nopol</th>
-            <th>Roda</th>
-            <th>Nama Sesuai STNK</th>
-            <th>Masa Berlaku Pajak</th>
-            <th>NO HP</th>
-            <th>Status Kendaraan Bermotor</th>
+            <th>Kecamatan</th>
+            <th>Kelurahan</th>
+            <th>Jumlah Kendaraan Bermotor</th>
         </tr>
         @php
         $no =1;
@@ -52,15 +45,9 @@
         @foreach ($data as $key => $item)
         <tr>
             <td>{{$key + 1}}</td>
-            <td>{{\Carbon\Carbon::parse($item->created_at)->format('d M Y')}}</td>
-            <td>{{$item->nama}}</td>
-            <td>{{$item->alamat}}</td>
-            <td>{{$item->nopol}}</td>
-            <td>{{$item->roda}}</td>
-            <td>{{$item->namapemiliksesuaistnk}}</td>
-            <td>{{$item->masalakupajak}}</td>
-            <td>{{$item->nohp}}</td>
-            <td>{{$item->statusmotor}}</td>
+            <td>{{$item->kecamatan}}</td>
+            <td>{{$item->kelurahan}}</td>
+            <td style="text-align: center">{{$item->jumlah}}</td>
         </tr>
         @endforeach
     </table>

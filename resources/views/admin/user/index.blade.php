@@ -29,7 +29,7 @@
             </tr>
             @foreach ($data as $key => $item)
             <tr>
-              <td style="border: 1px solid black">{{1 + $key}}</td>
+              <td style="border: 1px solid black">{{$data->firstItem() + $key}}</td>
               <td style="border: 1px solid black">{{$item->name}}</td>
               <td style="border: 1px solid black">{{$item->username}}</td>
               <td style="border: 1px solid black">{{$item->roles}}</td>

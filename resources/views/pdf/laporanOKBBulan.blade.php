@@ -42,6 +42,7 @@
             <th>Nama Sesuai STNK</th>
             <th>Masa Berlaku</th>
             <th>NO HP</th>
+            <th>Status Kendaraan Bermotor</th>
         </tr>
         @php
         $no =1;
@@ -58,6 +59,7 @@
             <td>{{$item->namapemiliksesuaistnk}}</td>
             <td>{{$item->masalakupajak}}</td>
             <td>{{$item->nohp}}</td>
+            <td>{{$item->statusmotor}}</td>
         </tr>
         @endforeach
     </table>

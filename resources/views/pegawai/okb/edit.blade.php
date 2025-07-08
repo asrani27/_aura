@@ -101,6 +101,18 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Status Kendaraan BerMotor</label>
+                        <div class="col-sm-10">
+                            <select name="statusmotor" class="form-control" required>
+                                <option value="">-pilih-</option>
+                                <option value="Baik / Layak Jalan" {{$data->statusmotor == 'Baik/LayakJalan' ? 'selected':''}}>Baik / Layak Jalan</option>
+                                <option value="Tidak Layak Jalan" {{$data->statusmotor == 'TidakLayakJalan' ? 'selected':''}}>Tidak Layak Jalan</option>
+                                <option value="Rusak Ringan" {{$data->statusmotor == 'RusakRingan' ? 'selected':''}}>Rusak Ringan</option>
+                                <option value="Rusak Berat" {{$data->statusmotor == 'RusakBerat' ? 'selected':''}}>Rusak Berat</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">Upload</label>
                         <div class="col-sm-10">
                             <input type="file" class="form-control" name="file">

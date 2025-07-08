@@ -27,23 +27,19 @@
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN OBJEK KENDARAAN BERMOTOR <br>
+    <h3 style="text-align: center">LAPORAN JADWAL KEGIATAN <br>
 
-    </h3>
-    <strong>Tanggal : {{\Carbon\Carbon::parse($tanggal)->format('d M Y')}}</strong><br />
+    </h3><strong> Tahun: {{ $tahun }}</strong><br />
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
-            <th>No</th>
+         <th>No</th>
             <th>Tanggal</th>
-            <th>Nama</th>
-            <th>Alamat</th>
-            <th>Nopol</th>
-            <th>Roda</th>
-            <th>Nama Sesuai STNK</th>
-            <th>Masa Berlaku Pajak</th>
-            <th>NO HP</th>
-            <th>Status Kendaraan Bermotor</th>
+            <th>Nama Pegawai</th>
+            <th>Waktu Mulai</th>
+            <th>Waktu Selesai</th>
+            <th>Lokasi</th>
+            <th>Status</th>
         </tr>
         @php
         $no =1;
@@ -51,16 +47,14 @@
 
         @foreach ($data as $key => $item)
         <tr>
-            <td>{{$key + 1}}</td>
-            <td>{{\Carbon\Carbon::parse($item->created_at)->format('d M Y')}}</td>
-            <td>{{$item->nama}}</td>
-            <td>{{$item->alamat}}</td>
-            <td>{{$item->nopol}}</td>
-            <td>{{$item->roda}}</td>
-            <td>{{$item->namapemiliksesuaistnk}}</td>
-            <td>{{$item->masalakupajak}}</td>
-            <td>{{$item->nohp}}</td>
-            <td>{{$item->statusmotor}}</td>
+           <td>{{$key + 1}}</td>
+            <td>{{\Carbon\Carbon::parse($item->tgl_kegiatan)->format('d M Y')}}</td>
+            <td>{{$item->pegawai->nama}}
+            <td>{{$item->waktu_mulai}}</td>
+            <td>{{$item->waktu_selesai}}</td>
+            <td>{{$item->lokasi}}</td>
+            <td>{{$item->tracking->last() == null ? 'belum selesai': $item->tracking->last()->status}}</td>
+        </tr>
         </tr>
         @endforeach
     </table>

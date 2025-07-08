@@ -94,6 +94,18 @@
                             <input type="text" class="form-control" name="nohp" required>
                         </div>
                     </div>
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Status Kendaraan BerMotor</label>
+                        <div class="col-sm-10">
+                            <select name="statusmotor" class="form-control" required>
+                                <option value="">-pilih-</option>
+                                <option value="Baik / Layak Jalan">Baik / Layak Jalan</option>
+                                <option value="Tidak Layak Jalan">Tidak Layak Jalan</option>
+                                <option value="Rusak Ringan">Rusak Ringan</option>
+                                <option value="Rusak Burat">Rusak Berat</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Upload</label>
                         <div class="col-sm-10">

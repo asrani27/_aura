@@ -62,19 +62,32 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/laporan/pegawaitekon', [LaporanController::class, 'laporan_pegawaitekon']);
     Route::get('admin/data/laporan/okb', [LaporanController::class, 'laporan_okb']);
     Route::get('admin/data/laporan/okb/print', [LaporanController::class, 'print_okb']);
+    Route::get('admin/data/laporan/okb/print_tahun', [LaporanController::class, 'print_okb_tahun']);
+    Route::get('admin/data/laporan/okb/print_semua', [LaporanController::class, 'print_okb_semua']);
     Route::get('admin/data/laporan/spt', [LaporanController::class, 'laporan_spt']);
     Route::get('admin/data/laporan/spt/print', [LaporanController::class, 'print_spt']);
+    Route::get('admin/data/laporan/spt/print_tahun', [LaporanController::class, 'print_spt_tahun']);
+    Route::get('admin/data/laporan/spt/print_semua', [LaporanController::class, 'print_spt_semua']);
     Route::get('admin/data/laporan/monitoring', [LaporanController::class, 'laporan_monitoring']);
     Route::get('admin/data/laporan/monitoring/print', [LaporanController::class, 'print_monitoring']);
+    Route::get('admin/data/laporan/monitoring/print_tahun', [LaporanController::class, 'print_monitoring_tahun']);
+    Route::get('admin/data/laporan/monitoring/print_semua', [LaporanController::class, 'print_monitoring_semua']);
     Route::get('admin/data/laporan/jadwal', [LaporanController::class, 'laporan_jadwal']);
     Route::get('admin/data/laporan/jadwal/print', [LaporanController::class, 'print_jadwal']);
+    Route::get('admin/data/laporan/jadwal/print_tahun', [LaporanController::class, 'print_jadwal_tahun']);
+    Route::get('admin/data/laporan/jadwal/print_semua', [LaporanController::class, 'print_jadwal_semua']);
     Route::get('admin/data/laporan/statuspajak', [LaporanController::class, 'laporan_statuspajak']);
     Route::get('admin/data/laporan/statuspajak/print', [LaporanController::class, 'print_statuspajak']);
+    Route::get('admin/data/laporan/statuspajak/print_tahun', [LaporanController::class, 'print_statuspajak_tahun']);
+    Route::get('admin/data/laporan/statuspajak/print_semua', [LaporanController::class, 'print_statuspajak_semua']);
     Route::get('admin/data/laporan/realisasikunjungan', [LaporanController::class, 'laporan_realisasikunjungan']);
     Route::get('admin/data/laporan/realisasikunjungan/print', [LaporanController::class, 'print_realisasikunjungan']);
 
     Route::get('admin/data/laporan/perpetugas', [LaporanController::class, 'laporan_perpetugas']);
     Route::get('admin/data/laporan/perpetugas/print', [LaporanController::class, 'print_perpetugas']);
+
+    Route::get('admin/data/laporan/perwilayah', [LaporanController::class, 'laporan_perwilayah']);
+    Route::get('admin/data/laporan/perwilayah/print', [LaporanController::class, 'print_perwilayah']);
 
     Route::get('admin/data/jadwal/cari', [JadwalController::class, 'cari']);
     Route::get('admin/data/jadwal', [JadwalController::class, 'index']);
@@ -123,9 +136,28 @@ Route::middleware(['auth', 'role:pimpinan'])->group(function () {
     Route::get('pimpinan/data/laporan/pegawaitekon', [LaporanController::class, 'laporan_pegawaitekon']);
     Route::get('pimpinan/data/laporan/okb', [LaporanController::class, 'laporan_okb']);
     Route::get('pimpinan/data/laporan/okb/print', [LaporanController::class, 'print_okb']);
+    Route::get('pimpinan/data/laporan/okb/print_tahun', [LaporanController::class, 'print_okb_tahun']);
+    Route::get('pimpinan/data/laporan/okb/print_semua', [LaporanController::class, 'print_okb_semua']);
     Route::get('pimpinan/data/laporan/spt', [LaporanController::class, 'laporan_spt']);
     Route::get('pimpinan/data/laporan/spt/print', [LaporanController::class, 'print_spt']);
+    Route::get('pimpinan/data/laporan/spt/print_tahun', [LaporanController::class, 'print_spt_tahun']);
+    Route::get('pimpinan/data/laporan/spt/print_semua', [LaporanController::class, 'print_spt_semua']);
     Route::get('pimpinan/data/laporan/monitoring', [LaporanController::class, 'laporan_monitoring']);
     Route::get('pimpinan/data/laporan/monitoring/print', [LaporanController::class, 'print_monitoring']);
+    Route::get('pimpinan/data/laporan/monitoring/print_tahun', [LaporanController::class, 'print_monitoring_tahun']);
+    Route::get('pimpinan/data/laporan/monitoring/print_semua', [LaporanController::class, 'print_monitoring_semua']);
+    Route::get('pimpinan/data/laporan/jadwal', [LaporanController::class, 'laporan_jadwal']);
+    Route::get('pimpinan/data/laporan/jadwal/print', [LaporanController::class, 'print_jadwal']);
+    Route::get('pimpinan/data/laporan/jadwal/print_tahun', [LaporanController::class, 'print_jadwal_tahun']);
+    Route::get('pimpinan/data/laporan/jadwal/print_semua', [LaporanController::class, 'print_jadwal_semua']);
+    Route::get('pimpinan/data/laporan/statuspajak', [LaporanController::class, 'laporan_statuspajak']);
+    Route::get('pimpinan/data/laporan/statuspajak/print', [LaporanController::class, 'print_statuspajak']);
+    Route::get('pimpinan/data/laporan/statuspajak/print_tahun', [LaporanController::class, 'print_statuspajak_tahun']);
+    Route::get('pimpinan/data/laporan/statuspajak/print_semua', [LaporanController::class, 'print_statuspajak_semua']);
+    Route::get('pimpinan/data/laporan/realisasikunjungan', [LaporanController::class, 'laporan_realisasikunjungan']);
+    Route::get('pimpinan/data/laporan/realisasikunjungan/print', [LaporanController::class, 'print_realisasikunjungan']);
+    Route::get('pimpinan/data/laporan/perpetugas', [LaporanController::class, 'laporan_perpetugas']);
+    Route::get('pimpinan/data/laporan/perpetugas/print', [LaporanController::class, 'print_perpetugas']);
+
     Route::get('pimpinan', [HomeController::class, 'pimpinan']);
 });

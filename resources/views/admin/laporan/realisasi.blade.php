@@ -10,11 +10,18 @@
     <div class="box box-primary">
       <div class="box-header">
         <i class="ion ion-clipboard"></i>
-        <h3 class="box-title">Laporan Data Realisasi Kunjungan</h3>
+        <h3 class="box-title">Laporan Realisasi Kunjungan</h3>
       </div>
+
+     
+
       <!-- /.box-header -->
       <div class="box-body">
+         @if(Auth::user()->roles == 'pimpinan')
+        <a href="/pimpinan/data/laporan/realisasikunjungan/print" class="btn btn-sm btn-primary">Print Semua Data</a>
+          @else
         <a href="/admin/data/laporan/realisasikunjungan/print" class="btn btn-sm btn-primary">Print Semua Data</a>
+        @endif
 
         {{-- @if(Auth::user()->roles == 'pimpinan')
         <form method="get" action="/pimpinan/data/laporan/monitoring/print">

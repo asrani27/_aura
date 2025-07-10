@@ -158,6 +158,8 @@ Route::middleware(['auth', 'role:pimpinan'])->group(function () {
     Route::get('pimpinan/data/laporan/realisasikunjungan/print', [LaporanController::class, 'print_realisasikunjungan']);
     Route::get('pimpinan/data/laporan/perpetugas', [LaporanController::class, 'laporan_perpetugas']);
     Route::get('pimpinan/data/laporan/perpetugas/print', [LaporanController::class, 'print_perpetugas']);
+    Route::get('pimpinan/data/laporan/perwilayah', [LaporanController::class, 'laporan_perwilayah']);
+    Route::get('pimpinan/data/laporan/perwilayah/print', [LaporanController::class, 'print_perwilayah']);
 
     Route::get('pimpinan', [HomeController::class, 'pimpinan']);
 });

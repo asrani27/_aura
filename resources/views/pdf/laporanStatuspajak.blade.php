@@ -38,7 +38,7 @@
             <th>Nopol</th>
             <th>Nama Pemilik STNK</th>
             <th>Alamat</th>
-            <th> status Pajak</th>
+            <th>status Pajak</th>
         </tr>
         @php
         $no =1;

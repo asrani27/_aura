@@ -58,13 +58,13 @@
                 <a href="/storage/uploads/{{$item->dokumentasi}}" target="_blank">lihat</a>
               </td>
               {{-- <td style="border: 1px solid black;"></td> --}}
-              <td style="border: 1px solid black;display:">
+              <td style="border: 1px solid black;display:flex">
                 <a href="/pegawai/data/okb/print/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"
-                  target="_blank"><i class="fa fa-print"></i> print</a>
+                  target="_blank"><i class="fa fa-print"></i></a>
                 <a href="/pegawai/data/okb/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i
-                    class="fa fa-edit"></i> Edit</a>
+                    class="fa fa-edit"></i></a>
                 <a href="/pegawai/data/okb/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"
-                  onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
+                  onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
             @endforeach

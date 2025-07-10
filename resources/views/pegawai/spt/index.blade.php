@@ -44,7 +44,7 @@
               <td style="border: 1px solid black">
                 <a href="/storage/uploads/{{$item->upload}}" target="_blank">lihat</a>
               </td>
-              <td style="border: 1px solid black;display:">
+              <td style="border: 1px solid black;display:flex">
                 <a href="/pegawai/data/spt/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i
                     class="fa fa-edit"></i></a>
                 <a href="/pegawai/data/spt/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"

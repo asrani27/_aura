@@ -18,11 +18,7 @@
         </div>
       </div>
       <!-- /.box-header -->
-<<<<<<< HEAD
       <div class="box-body table-responsive no-padding">
-=======
-      <div class="box-body table-responsive">
->>>>>>> 3c866cb (f)
         <table class="table table-hover" id="example1">
           <thead>
             <tr style="background-color:#FFD700">

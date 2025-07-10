@@ -42,19 +42,29 @@
         </tr>
         @php
         $no =1;
+        $berlaku = 0;
+        $tidak_berlaku = 0;
         @endphp
-
         @foreach ($data as $key => $item)
-        <tr>
-            <td>{{$key + 1}}</td>
-            <td>{{$item->nopol}}</td>
-            <td>{{$item->alamat}}</td>
-            <td>{{$item->namapemiliksesuaistnk}}</td>
-            <td>{{$item->masalakupajak < \Carbon\Carbon::now()->format('Y-m-d') ? 'Tidak Berlaku':'Berlaku'}}</td>
-        </tr>
-        @endforeach
+        @php
+        $status = $item->masalakupajak < \Carbon\Carbon::now()->format('Y-m-d') ? 'Tidak Berlaku' : 'Berlaku';
+            if ($status === 'Berlaku') {
+            $berlaku++;
+            } else {
+            $tidak_berlaku++;
+            }
+            @endphp
+            <tr>
+                <td>{{$key + 1}}</td>
+                <td>{{$item->nopol}}</td>
+                <td>{{$item->alamat}}</td>
+                <td>{{$item->namapemiliksesuaistnk}}</td>
+                <td>{{$item->masalakupajak < \Carbon\Carbon::now()->format('Y-m-d') ? 'Tidak Berlaku':'Berlaku'}}</td>
+            </tr>
+            @endforeach
     </table>
-
+    <br /> Jumlah Status Pajak Berlaku : {{ $berlaku }} <br />
+    Jumlah Status Pajak Tidak Berlaku : {{ $tidak_berlaku }} <br />
     <table width="100%">
         <tr>
             <td width="60%"></td>

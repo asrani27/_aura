@@ -33,16 +33,25 @@
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
-             <th>No</th>
+            <th>No</th>
             <th>Nopol</th>
             <th>Nama Pemilik STNK</th>
             <th>Alamat</th>
             <th>Status Pajak</th>
-        @php
-        $no =1;
-        @endphp
-
-        @foreach ($data as $key => $item)
+            @php
+            $no =1;
+            $berlaku = 0;
+            $tidak_berlaku = 0;
+            @endphp
+            @foreach ($data as $key => $item)
+            @php
+            $status = $item->masalakupajak < \Carbon\Carbon::now()->format('Y-m-d') ? 'Tidak Berlaku' : 'Berlaku';
+                if ($status === 'Berlaku') {
+                $berlaku++;
+                } else {
+                $tidak_berlaku++;
+                }
+                @endphp
         <tr>
             <td>{{$key + 1}}</td>
             <td>{{$item->nopol}}</td>
@@ -52,7 +61,8 @@
         </tr>
         @endforeach
     </table>
-
+    <br /> Jumlah Status Pajak Berlaku : {{ $berlaku }} <br />
+    Jumlah Status Pajak Tidak Berlaku : {{ $tidak_berlaku }} <br />
     <table width="100%">
         <tr>
             <td width="60%"></td>

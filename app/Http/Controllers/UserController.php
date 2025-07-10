@@ -14,7 +14,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $data = User::paginate(10);
+        $data = User::get();
         return view('admin.user.index', compact('data'));
     }
     public function tambah()

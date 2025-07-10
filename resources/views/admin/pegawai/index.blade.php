@@ -29,10 +29,10 @@
               <th style="border: 1px solid black">AKSI</th>
             </tr>
           </thead>
-            <tbody>
+          <tbody>
             @foreach ($data as $key => $item)
             <tr>
-              <td style="border: 1px solid black">{{$data->firstItem() + $key}}</td>
+              <td style="border: 1px solid black">{{1 + $key}}</td>
               <td style="border: 1px solid black">{{$item->nik}}</td>
               <td style="border: 1px solid black">{{$item->nip}}</td>
               <td style="border: 1px solid black">{{$item->nama}}</td>
@@ -53,7 +53,7 @@
       <!-- /.box-body -->
 
       <div class="box-footer">
-        {{$data->links()}}
+
       </div>
     </div>
   </div>

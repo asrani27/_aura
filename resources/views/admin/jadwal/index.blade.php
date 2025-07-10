@@ -88,7 +88,7 @@
       <!-- /.box-body -->
 
       <div class="box-footer">
-        {{$data->links()}}
+
       </div>
     </div>
   </div>

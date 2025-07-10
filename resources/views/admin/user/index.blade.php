@@ -18,8 +18,8 @@
       </div>
       <!-- /.box-header -->
       <div class="box-body table-responsive no-padding">
-        <table class="table table-hover table-bordered">
-          <tbody>
+        <table class="table table-hover table-bordered" id="example1">
+          <thead>
             <tr style="background-color: #FFD700">
               <th style="border: 1px solid black">NO</th>
               <th style="border: 1px solid black">NAMA</th>
@@ -27,9 +27,11 @@
               <th style="border: 1px solid black"> ROLES</th>
               <th style="border: 1px solid black"> AKSI</th>
             </tr>
+          </thead>
+          <tbody>
             @foreach ($data as $key => $item)
             <tr>
-              <td style="border: 1px solid black">{{$data->firstItem() + $key}}</td>
+              <td style="border: 1px solid black">{{1 + $key}}</td>
               <td style="border: 1px solid black">{{$item->name}}</td>
               <td style="border: 1px solid black">{{$item->username}}</td>
               <td style="border: 1px solid black">{{$item->roles}}</td>
@@ -45,7 +47,7 @@
         </table>
       </div>
       <div class="box-footer">
-        {{$data->links()}}
+
       </div>
       <!-- /.box-body -->
     </div>

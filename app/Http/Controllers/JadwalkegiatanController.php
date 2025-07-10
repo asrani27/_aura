@@ -45,7 +45,7 @@ class JadwalkegiatanController extends Controller
     }
     public function index()
     {
-        $data = Jadwal::where('pegawai_id', Auth::user()->pegawai_id)->paginate(10);
+        $data = Jadwal::where('pegawai_id', Auth::user()->pegawai_id)->get();
         return view('pegawai.jadwal.index', compact('data'));
     }
     public function proses($id)

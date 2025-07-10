@@ -4,16 +4,6 @@
 @endpush
 @section('content')
 
-<form method="get" action="/admin/data/jadwal/cari">
-  @csrf
-  <div class="input-group input-group-md hidden-xs" style="width: 300px;">
-    <input type="text" name="cari" class="form-control pull-right" placeholder="cari data">
-
-    <div class="input-group-btn">
-      <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-    </div>
-  </div>
-</form>
 
 <div class="row">
   <div class="col-md-12">
@@ -23,7 +13,7 @@
         <h3 class="box-title">Jadwal Kegitan Door To Door .</h3>
 
         <!-- /.box-header -->
-        <div class="box-body table-responsive no-padding">
+        <div class="box-body table-responsive">
           <table class="table table-hover" id="example1">
             <thead>
               <tr style="background-color:#FFD700">

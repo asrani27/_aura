@@ -50,20 +50,19 @@ class LaporanController extends Controller
     {
         return view('admin.laporan.okb');
     }
-    
+
     public function print_okb_tahun()
     {
-            $tahun = request()->get('tahun');
+        $tahun = request()->get('tahun');
 
-            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_OKB.pdf';
-            $data = OKB::whereYear('created_at', $tahun)->get();
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_OKB.pdf';
+        $data = OKB::whereYear('created_at', $tahun)->get();
 
 
-            $pdf = Pdf::loadView('pdf.laporanOKBTahun', compact('data', 'tahun'))->setOption([
-                'enable_remote' => true,
-            ])->setPaper('a4', 'landscape');
-            return $pdf->stream($filename);
-        
+        $pdf = Pdf::loadView('pdf.laporanOKBTahun', compact('data', 'tahun'))->setOption([
+            'enable_remote' => true,
+        ])->setPaper('a4', 'landscape');
+        return $pdf->stream($filename);
     }
 
     public function print_okb()
@@ -170,17 +169,16 @@ class LaporanController extends Controller
 
     public function print_spt_tahun()
     {
-            $tahun = request()->get('tahun');
+        $tahun = request()->get('tahun');
 
-            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
-            $data = Spt::whereYear('created_at', $tahun)->get();
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_SPT.pdf';
+        $data = Spt::whereYear('created_at', $tahun)->get();
 
 
-            $pdf = Pdf::loadView('pdf.laporanSPTTahun', compact('data', 'tahun'))->setOption([
-                'enable_remote' => true,
-            ])->setPaper('a4', 'landscape');
-            return $pdf->stream($filename);
-        
+        $pdf = Pdf::loadView('pdf.laporanSPTTahun', compact('data', 'tahun'))->setOption([
+            'enable_remote' => true,
+        ])->setPaper('a4', 'landscape');
+        return $pdf->stream($filename);
     }
 
     public function print_spt_semua()
@@ -236,17 +234,16 @@ class LaporanController extends Controller
 
     public function print_monitoring_tahun()
     {
-            $tahun = request()->get('tahun');
+        $tahun = request()->get('tahun');
 
-            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_monitoring.pdf';
-            $data = Pegawai::whereYear('created_at', $tahun)->get();
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_monitoring.pdf';
+        $data = Pegawai::whereYear('created_at', $tahun)->get();
 
 
-            $pdf = Pdf::loadView('pdf.laporanMonitoringTahun', compact('data', 'tahun'))->setOption([
-                'enable_remote' => true,
-            ])->setPaper('a4', 'landscape');
-            return $pdf->stream($filename);
-        
+        $pdf = Pdf::loadView('pdf.laporanMonitoringTahun', compact('data', 'tahun'))->setOption([
+            'enable_remote' => true,
+        ])->setPaper('a4', 'landscape');
+        return $pdf->stream($filename);
     }
 
     public function print_monitoring_semua()
@@ -294,17 +291,16 @@ class LaporanController extends Controller
 
     public function print_jadwal_tahun()
     {
-            $tahun = request()->get('tahun');
+        $tahun = request()->get('tahun');
 
-            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_Jadwal.pdf';
-            $data = Jadwal::whereYear('created_at', $tahun)->get();
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_Jadwal.pdf';
+        $data = Jadwal::whereYear('created_at', $tahun)->get();
 
 
-            $pdf = Pdf::loadView('pdf.laporanJadwalTahun', compact('data', 'tahun'))->setOption([
-                'enable_remote' => true,
-            ])->setPaper('a4', 'landscape');
-            return $pdf->stream($filename);
-        
+        $pdf = Pdf::loadView('pdf.laporanJadwalTahun', compact('data', 'tahun'))->setOption([
+            'enable_remote' => true,
+        ])->setPaper('a4', 'landscape');
+        return $pdf->stream($filename);
     }
 
     public function print_jadwal_semua()
@@ -352,17 +348,16 @@ class LaporanController extends Controller
 
     public function print_statuspajak_tahun()
     {
-            $tahun = request()->get('tahun');
+        $tahun = request()->get('tahun');
 
-            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_OKB.pdf';
-            $data = OKB::whereYear('created_at', $tahun)->get();
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_OKB.pdf';
+        $data = OKB::whereYear('created_at', $tahun)->get();
 
 
-            $pdf = Pdf::loadView('pdf.laporanStatuspajakTahun', compact('data', 'tahun'))->setOption([
-                'enable_remote' => true,
-            ])->setPaper('a4', 'landscape');
-            return $pdf->stream($filename);
-        
+        $pdf = Pdf::loadView('pdf.laporanStatuspajakTahun', compact('data', 'tahun'))->setOption([
+            'enable_remote' => true,
+        ])->setPaper('a4', 'landscape');
+        return $pdf->stream($filename);
     }
 
     public function print_statuspajak_semua()
@@ -377,10 +372,23 @@ class LaporanController extends Controller
 
     public function print_perwilayah()
     {
-        
-        $data = Jadwal::selectRaw('kelurahan,kecamatan,COUNT(*) as jumlah')->groupBy('kelurahan','kecamatan')
-        ->get();
-        
+
+        $dataokb = Jadwal::get()->map(function ($item) {
+            $item->okb = $item->okb;
+            return $item;
+        });
+        $data = collect($dataokb)->groupBy('kelurahan')->map(function ($items, $kelurahan) {
+            $totalOkb = $items->sum(function ($item) {
+                return count($item['okb']);
+            });
+
+            return [
+                'kelurahan' => $kelurahan,
+                'kecamatan' => $items->first()['kecamatan'], // ambil kecamatan dari salah satu item
+                'total_okb' => $totalOkb,
+            ];
+        })->values();
+
         $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_perwilayah.pdf';
         $pdf = Pdf::loadView('pdf.laporan_perwilayah', compact('data'))->setOption([
             'enable_remote' => true,

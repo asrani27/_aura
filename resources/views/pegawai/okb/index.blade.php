@@ -18,7 +18,8 @@
       <!-- /.box-header -->
       <div class="box-body table-responsive no-padding">
         <table class="table table-hover" id="example1">
-          <tbody>
+          <thead>
+
             <tr style="background-color:#FFD700">
               <th style="border: 1px solid black">No</th>
               <th style="border: 1px solid black">Tanggal</th>
@@ -34,6 +35,8 @@
               <th style="border: 1px solid black">Dokumentasi</th>
               <th style="border: 1px solid black">Aksi</th>
             </tr>
+          </thead>
+          <tbody>
             @foreach ($data as $key => $item)
             <tr>
               <td style="border: 1px solid black">{{1 + $key}}</td>
@@ -46,16 +49,16 @@
               <td style="border: 1px solid black">{{$item->masalakupajak}}</td>
               <td style="border: 1px solid black">
                 @if ($item->masalakupajak < \Carbon\Carbon::now()->format('Y-m-d'))
-                    <span class="label label-danger">Tidak Berlaku</span>
-                @else
-                    <span class="label label-success"> Berlaku</span>
-                @endif
+                  <span class="label label-danger">Tidak Berlaku</span>
+                  @else
+                  <span class="label label-success"> Berlaku</span>
+                  @endif
               <td style="border: 1px solid black">{{$item->nohp}}</td>
               <td style="border: 1px solid black">{{$item->statusmotor}}</td>
               <td style="border: 1px solid black">
                 <a href="/storage/uploads/{{$item->dokumentasi}}" target="_blank">lihat</a>
               </td>
-              {{-- <td  style="border: 1px solid black;"></td> --}}
+              {{-- <td style="border: 1px solid black;"></td> --}}
               <td style="border: 1px solid black;display:">
                 <a href="/pegawai/data/okb/print/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"
                   target="_blank"><i class="fa fa-print"></i> print</a>
@@ -71,7 +74,7 @@
       </div>
       <!-- /.box-body -->
       <div class="box-footer">
-        {{$data->links()}}
+
       </div>
     </div>
   </div>

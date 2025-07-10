@@ -13,19 +13,18 @@ class JadwalController extends Controller
 {
     public function index()
     {
-        $data = Jadwal::with('pegawai')->paginate(10);
+        $data = Jadwal::with('pegawai')->get();
         return view('admin.jadwal.index', compact('data'));
     }
     public function tambah()
     {
         $pegawai = Pegawai::get();
-        return view('admin.jadwal.create', compact( 'pegawai'));
+        return view('admin.jadwal.create', compact('pegawai'));
     }
-     public function simpan(Request $req)
+    public function simpan(Request $req)
     {
-     DB::beginTransaction();
-
-            {try {
+        DB::beginTransaction(); {
+            try {
 
                 Jadwal::create($req->all());
 
@@ -39,21 +38,21 @@ class JadwalController extends Controller
                 Session::flash('error', 'Gagal Menyimpan Data');
                 return back();
             }
-         }
+        }
     }
     public function edit($id)
     {
         $data = Jadwal::find($id);
         $pegawai = Pegawai::get();
-        return view('admin.jadwal.edit', compact('data','pegawai'));
+        return view('admin.jadwal.edit', compact('data', 'pegawai'));
     }
     public function update(Request $req, $id)
     {
-       $data = jadwal::find($id)->update($req->all());
+        $data = jadwal::find($id)->update($req->all());
         Session::flash('success', 'Berhasil Diupdate');
         return redirect('/admin/data/jadwal'); //untuk kembali ke menu 
     }
-     public function hapus($id)
+    public function hapus($id)
     {
         $data = Jadwal::find($id)->delete();
         return back();
@@ -65,5 +64,4 @@ class JadwalController extends Controller
         $data = Jadwal::where('nama', 'LIKE', '%' . $cari . '%')->paginate(10);
         return view('admin.pegawai.index', compact('data'));
     }
-
 }

@@ -15,7 +15,7 @@ class PimpinanController extends Controller
     }
     public function jadwal()
     {
-        $data = Jadwal::with('pegawai')->paginate(10);
+        $data = Jadwal::with('pegawai')->get(10);
         return view('pimpinan.jadwal.index', compact('data'));
     }
 }

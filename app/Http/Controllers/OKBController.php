@@ -15,7 +15,7 @@ class OKBController extends Controller
 {
     public function index()
     {
-        $data = OKB::where('pegawai_id', Auth::user()->pegawai_id)->paginate(10);
+        $data = OKB::where('pegawai_id', Auth::user()->pegawai_id)->get();
         return view('pegawai.okb.index', compact('data'));
     }
     public function print($id)

@@ -29,8 +29,9 @@
       </div>
       <!-- /.box-header -->
       <div class="box-body table-responsive no-padding">
-        <table class="table table-hover">
-          <tbody>
+        <table class="table table-hover" id="example1">
+          <thead>
+
             <tr style="background-color:#FFD700">
               <th style="border: 1px solid black">No</th>
               <th style="border: 1px solid black">Tanggal</th>
@@ -43,6 +44,8 @@
               <th style="border: 1px solid black">Lokasi</th>
               <th style="border: 1px solid black">Status</th>
             </tr>
+          </thead>
+          <tbody>
             @foreach ($data as $key => $item)
             <tr>
               <td style="border: 1px solid black">{{1 + $key}}</td>

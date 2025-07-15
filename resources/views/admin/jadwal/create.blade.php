@@ -72,9 +72,10 @@
             <option value="Benua Anyar">Benua Anyar</option>
             <option value="Karang Mekar">Karang Mekar</option>
             <option value="Kuripan">Kuripan</option>
+            <option value="Kebun Bunga">Kebun Bunga</option>
+            <option value="Pemurus Luar">Pemurus Luar</option>
         </select>
     </div>
-
     <div class="form-group">
         <label for="lokasi">Lokasi</label>
         <input type="text" class="form-control" id="lokasi" name="lokasi" readonly required>

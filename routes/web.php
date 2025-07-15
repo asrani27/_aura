@@ -9,11 +9,15 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\GolonganController;
 use App\Http\Controllers\PimpinanController;
 use App\Http\Controllers\MonitoringController;
 use App\Http\Controllers\JadwalkegiatanController;
+use App\Http\Controllers\PangkatController;
+use App\Models\Pangkat;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +55,30 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('admin/data/pegawai/edit/{id}', [PegawaiController::class, 'update']);
     Route::get('admin/data/pegawai/delete/{id}', [PegawaiController::class, 'hapus']);
     Route::get('admin/data/pegawai/detail/{id}', [PegawaiController::class, 'detail']);
+
+    Route::get('admin/data/golongan', [GolonganController::class, 'index']);
+    Route::get('admin/data/golongan/create', [GolonganController::class, 'tambah']);
+    Route::post('admin/data/golongan/create', [GolonganController::class, 'simpan']);
+    Route::get('admin/data/golongan/edit/{id}', [GolonganController::class, 'edit']);
+    Route::post('admin/data/golongan/edit/{id}', [GolonganController::class, 'update']);
+    Route::get('admin/data/golongan/delete/{id}', [GolonganController::class, 'hapus']);
+    Route::get('admin/data/golongan/cari', [GolonganController::class, 'cari']);
+
+    Route::get('admin/data/jabatan', [JabatanController::class, 'index']);
+    Route::get('admin/data/jabatan/create', [JabatanController::class, 'tambah']);
+    Route::post('admin/data/jabatan/create', [JabatanController::class, 'simpan']);
+    Route::get('admin/data/jabatan/edit/{id}', [JabatanController::class, 'edit']);
+    Route::post('admin/data/jabatan/edit/{id}', [JabatanController::class, 'update']);
+    Route::get('admin/data/jabatan/delete/{id}', [JabatanController::class, 'hapus']);
+    Route::get('admin/data/jabatan/cari', [JabatanController::class, 'cari']);
+
+    Route::get('admin/data/pangkat', [PangkatController::class, 'index']);
+    Route::get('admin/data/pangkat/create', [PangkatController::class, 'tambah']);
+    Route::post('admin/data/pangkat/create', [PangkatController::class, 'simpan']);
+    Route::get('admin/data/pangkat/edit/{id}', [PangkatController::class, 'edit']);
+    Route::post('admin/data/pangkat/edit/{id}', [PangkatController::class, 'update']);
+    Route::get('admin/data/pangkat/delete/{id}', [PangkatController::class, 'hapus']);
+    Route::get('admin/data/pangkat/cari', [PangkatController::class, 'cari']);
 
     Route::get('admin/data/monitoring', [MonitoringController::class, 'index']);
     Route::get('admin/data/monitoring/print/{id}', [MonitoringController::class, 'print']);

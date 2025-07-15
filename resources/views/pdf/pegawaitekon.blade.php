@@ -54,7 +54,7 @@
             <td>{{$item->jenis_kelamin}}</td>
             <td>{{$item->alamat}}</td>
             <td>{{$item->telp}}</td>
-            <td>{{$item->jabatan}}</td>
+            <td>{{$item->jabatan == null ? null : $item->jabatan->nama_jabatan}}</td>
             <td>{{$item->status_pegawai}}</td>
         </tr>
         @endforeach

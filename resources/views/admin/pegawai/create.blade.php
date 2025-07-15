@@ -61,48 +61,40 @@
                             <input type="text" class="form-control" name="telp" required>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label class="col-sm-2 control-label">PANGKAT</label>
-                         <div class="col-sm-10">
-                             <select name="pangkat" class="form-control" required>
-                                <option value="">-pilih-</option>
-                                <option value="(Penata)">Penata</option>
-                                <option value="(Penata Muda)">Penata Muda</option>
-                                <option value="(Penata TK.1)">Penata Tk.1</option>
-                                <option value="(Pengatur)">Pengatur</option>
-                                <option value="(Pengatur TK.1)">Pengatur Tk.1</option>
-                                <option value="(Juru TK.1)">Juru Tk.1</option>
-                            </select>
+                        <div class="col-sm-10">
+                        <select name="pangkat_id" class="form-control" required>
+                            <option value="">-pilih-</option>
+                            @foreach ($pangkat as $pan )
+                            <option value="{{$pan->id}}">{{$pan->nama_pangkat}}</option>
+                            @endforeach
+                        </select>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label class="col-sm-2 control-label">GOLONGAN</label>
-                            <div class="col-sm-10">
-                             <select name="golongan" class="form-control" required>
-                                <option value="">-pilih-</option>
-                                <option value="(I/d)">(I / d )</option>
-                                <option value="(II/c)">(II / c )</option>
-                                <option value="(II/d)">(II / d )</option>
-                                <option value="(III/a)">(III / a )</option>
-                                <option value="(III/c)">(III / c )</option>
-                                <option value="(III/d)">(III / d )</option>
-                            </select>
+                        <div class="col-sm-10">
+                        <select name="golongan_id" class="form-control" required>
+                            <option value="">-pilih-</option>
+                            @foreach ($golongan as $gol )
+                            <option value="{{$gol->id}}">{{$gol->nama_golongan}}</option>
+                            @endforeach
+                        </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">JABATAN</label>
                         <div class="col-sm-10">
-                             <select name="jabatan" class="form-control" required>
-                                <option value="">-pilih-</option>
-                                <option value="KepalaUnitUPPD1BJM">KEPALA UNIT UPPD BANJARMASIN 1</option>
-                                <option value="AnalisisKerja">ANALISIS KERJA</option>
-                                <option value="PengadministrasianPajak">PENGADMINISTRASIAN PAJAK</option>
-                                <option value="PengelolaDataPelayananPajak">PENGELOLA DATA PELAYANAN PAJAK</option>
-                                <option value="TenagaPengemudi">TENAGA PENGEMUDI</option>
-                                <option value="PenelaahTeknikKebijakan">PENELAAH TEKNIK KEBIJAKAN</option>
-                                <option value="BendaharaPemegangKasPenerimaan">BENDAHARA PEMEGANG KAS PENERIMAAN</option>
-                            </select>
-                        </div>
+                        <select name="jabatan_id" class="form-control" required>
+                            <option value="">-pilih-</option>
+                            @foreach ($jabatan as $jab )
+                            <option value="{{$jab->id}}">{{$jab->nama_jabatan}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">STATUS PEGAWAI</label>

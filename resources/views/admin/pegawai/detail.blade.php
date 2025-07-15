@@ -47,7 +47,7 @@
                 <td>
                     <strong><i class="fa fa-user margin-r-5"></i> Pangkat</strong>
 
-                    <p class="text-muted"> {{$data->pangkat}}</p>
+                    <p class="text-muted"> {{$data->pangkat == null ? '': $data->pangkat->nama_pangkat}}</p>
                 </td>
             </tr>
 
@@ -58,13 +58,13 @@
                     
         <strong><i class="fa fa-user margin-r-5"></i> Golongan</strong>
 
-               <p class="text-muted"> {{$data->golongan}}</p>
+               <p class="text-muted"> {{$data->golongan == null ? '': $data->golongan->nama_golongan}}</p></p>
             
                 </td>
                 <td>
                     <strong><i class="fa fa-user margin-r-5"></i> Jabatan</strong>
 
-                    <p class="text-muted"> {{$data->jabatan}}</p>
+                    <p class="text-muted">{{$data->jabatan == null ? '': $data->jabatan->nama_jabatan}}</p></p>
                 </td>
             </tr>
 

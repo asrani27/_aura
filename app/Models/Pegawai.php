@@ -26,4 +26,33 @@ class Pegawai extends Model
     {
         return $this->hasMany(OKB::class, 'pegawai_id')->count();
     }
+
+     public function pangkat()
+    {
+        return $this->belongsTo(Pangkat::class, 'pangkat_id');
+    }
+    public function getNamaPangkatAttribute()
+    {
+        return $this->pangkat->nama_pangkat;
+    }
+
+    public function golongan()
+    {
+        return $this->belongsTo(Golongan::class, 'golongan_id');
+    }
+    public function getNamaGolonganAttribute()
+    {
+        return $this->golongan->nama_golongan;
+    }
+
+    public function jabatan()
+    {
+        return $this->belongsTo(Jabatan::class, 'jabatan_id');
+    }
+    public function getNamaJabatanAttribute()
+    {
+        return $this->jabatan->nama_jabatan;
+    }
+
+
 }

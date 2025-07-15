@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jabatan;
+use App\Models\Pangkat;
 use App\Models\Pegawai;
+use App\Models\Golongan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -17,7 +20,10 @@ class PegawaiController extends Controller
 
     public function tambah()
     {
-        return view('admin.pegawai.create');
+        $jabatan = Jabatan::get();
+        $pangkat = Pangkat::get();
+        $golongan = Golongan::get();
+        return view('admin.pegawai.create', compact('jabatan', 'pangkat', 'golongan' )); //mengirim
     }
     public function simpan(Request $req)
     {
@@ -49,7 +55,10 @@ class PegawaiController extends Controller
     public function edit($id)
     {
         $data = Pegawai::find($id);
-        return view('admin.pegawai.edit', compact('data'));
+        $jabatan = Jabatan::get();
+        $pangkat = Pangkat::get();
+        $golongan = Golongan::get();
+        return view('admin.pegawai.edit', compact('data', 'jabatan', 'pangkat', 'golongan' )); //mengirim
     }
     public function update(Request $req, $id)
     {

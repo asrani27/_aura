@@ -24,7 +24,7 @@
               <th style="border: 1px solid black">Tanggal</th>
               <th style="border: 1px solid black">Nama</th>
               <th style="border: 1px solid black">Alamat</th>
-              <th style="border: 1px solid black">Nopol</th>
+              <th style="border: 1px solid black">No polisi</th>
               <th style="border: 1px solid black">Roda</th>
               <th style="border: 1px solid black">Nama Sesuai STNK</th>
               <th style="border: 1px solid black">Masa Berlaku Pajak</th>
@@ -58,7 +58,7 @@
                 <a href="/storage/uploads/{{$item->dokumentasi}}" target="_blank">lihat</a>
               </td>
               {{-- <td style="border: 1px solid black;"></td> --}}
-              <td style="border: 1px solid black;display:flex">
+              <td style="border: 1px solid black;display">
                 <a href="/pegawai/data/okb/print/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"
                   target="_blank"><i class="fa fa-print"></i></a>
                 <a href="/pegawai/data/okb/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i

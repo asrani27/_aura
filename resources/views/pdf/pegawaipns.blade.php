@@ -58,9 +58,9 @@
             <td>{{$item->jenis_kelamin}}</td>
             <td>{{$item->alamat}}</td>
             <td>{{$item->telp}}</td>
-            <td>{{$item->pangkat}}</td>
-            <td>{{$item->golongan}}</td>
-            <td>{{$item->jabatan}}</td>
+            <td>{{$item->pangkat == null ? null : $item->pangkat->nama_pangkat}}</td>
+            <td>{{$item->golongan == null ? null : $item->golongan->nama_golongan}}</td>
+            <td>{{$item->jabatan == null ? null : $item->jabatan->nama_jabatan}}</td>
             <td>{{$item->status_pegawai}}</td>
         </tr>
         @endforeach

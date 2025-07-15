@@ -9,8 +9,21 @@
           class="fa fa-users"></i> <span>Data User</span></a></li>
     <li class="{{ (request()->is('admin/data/pegawai*')) ? 'active' : '' }}"><a href="/admin/data/pegawai"><i
           class="fa fa-users"></i> <span>Data Pegawai</span></a></li>
+    <li class="treeview">
+      <a href="#">
+    <i class="fa fa-file"></i> <span>Data Master</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="/admin/data/jabatan" target="_blank"><i class="fa fa-circle-o"></i> Data Jabatan </a></li>
+        <li><a href="/admin/data/golongan" target="_blank"><i class="fa fa-circle-o"></i> Data Golongan </a></li>
+        <li><a href="/admin/data/pangkat" target="_blank"><i class="fa fa-circle-o"></i> Data Pangkat </a></li>
+        </ul>
+    </li>
     <li class="{{ (request()->is('admin/data/jadwal*')) ? 'active' : '' }}"><a href="/admin/data/jadwal">
-        <i class="fa fa-calendar"></i> <span>Jadwal Kegiatan</span> </a></li>
+      <i class="fa fa-calendar"></i> <span>Jadwal Kegiatan</span> </a></li>
     <li class="{{ (request()->is('admin/data/monitoring*')) ? 'active' : '' }}"><a href="/admin/data/monitoring"><i
           class="fa fa-users"></i> <span>Monitoring</span></a></li>
     <li class="treeview">
@@ -24,7 +37,6 @@
         <li><a href="/admin/data/laporan/pegawaipns" target="_blank"><i class="fa fa-circle-o"></i> Laporan Pegawai
             PNS</a>
         </li>
-
         <li><a href="/admin/data/laporan/pegawaitekon" target="_blank"><i class="fa fa-circle-o"></i> Laporan Pegawai
             TEKON</a>
         </li>

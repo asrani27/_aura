@@ -62,22 +62,40 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">pangkat</label>
+                        <label class="col-sm-2 control-label">PANGKAT</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="pangkat" value="{{$data->pangkat}}">
-                        </div>
+                        <select name="pangkat_id" class="form-control">
+                            <option value="">-pilih-</option>
+                            @foreach ($pangkat as $pan )
+                            <option value="{{ $pan->id }}" {{ $data->pangkat_id == $pan->id ? 'selected' : '' }}>{{ $pan->nama_pangkat}}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">golongan</label>
+                        <label class="col-sm-2 control-label">GOLONGAN</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="golongan"  value="{{$data->golongan}}">
-                        </div>
+                        <select name="golongan_id" class="form-control">
+                            <option value="">-pilih-</option>
+                            @foreach ($golongan as $gol )
+                            <option value="{{ $gol->id }}" {{ $data->golongan_id == $gol->id ? 'selected' : '' }}>{{ $gol->nama_golongan}}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">jabatan</label>
+                        <label class="col-sm-2 control-label">JABATAN</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="jabatan" required value="{{$data->jabatan}}">
-                        </div>
+                        <select name="jabatan_id" class="form-control">
+                            <option value="">-pilih-</option>
+                            @foreach ($jabatan as $jab )
+                            <option value="{{ $jab->id }}" {{ $data->jabatan_id == $jab->id ? 'selected' : '' }}>{{ $jab->nama_jabatan}}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">StatusPegawai</label>

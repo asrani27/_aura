@@ -74,6 +74,8 @@
             <option value="Benua Anyar" {{ $data->kelurahan == 'Benua Anyar' ? 'selected' : '' }}>Benua Anyar</option>
             <option value="Karang Mekar" {{ $data->kelurahan == 'Karang Mekar' ? 'selected' : '' }}>Karang Mekar</option>
             <option value="Kuripan" {{ $data->kelurahan == 'Kuripan' ? 'selected' : '' }}>Kuripan</option>
+            <option value="Kebun Bunga" {{ $data->kelurahan == 'Kebun Bunga' ? 'selected' : '' }}>Kebun Bunga</option>
+            <option value="Pemurus Luar" {{ $data->kelurahan == 'Pemurus Luar' ? 'selected' : '' }}>Pemurus Luar</option>
         </select>
     </div>
 

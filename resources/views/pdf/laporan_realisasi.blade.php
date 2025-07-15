@@ -35,7 +35,7 @@
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th>No</th>
-            <th>Hari/Tanggal</th>
+            <th>Tanggal</th>
             <th>Nama Pegawai</th>
             <th>Lokasi</th>
             <th>Keterangan</th>
@@ -52,7 +52,7 @@
             <td>{{$item->pegawai == null ? null: $item->pegawai->nama}}</td>
             <td>{{$item->lokasi}}</td>
             <td>{{$item->keterangan}}</td>
-            <td>{{$item->okb == null ? null : $item->okb->hasil}}</td>
+            <td>{{$item->okb == null ? null: $item->okb->hasil}}</td>
         </tr>
         @endforeach
     </table>

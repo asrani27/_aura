@@ -27,7 +27,7 @@
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN STATUS PAJAK <br>
+    <h3 style="text-align: center">LAPORAN KEPATUHAN PAJAK KENDARAAN <br>
 
     </h3>
     <br />

@@ -121,7 +121,15 @@ class LaporanController extends Controller
     }
     public function print_realisasikunjungan()
     {
-        $data = Jadwal::get();
+        $data = Jadwal::get()->map(function ($item) {
+            if ($item->okb == null) {
+                $item->hasil = null;
+            } else {
+                $item->hasil = $item->okb->first()?->hasil;
+            }
+            return $item;
+        });
+
         $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_realisasi.pdf';
         $pdf = Pdf::loadView('pdf.laporan_realisasi', compact('data'))->setOption([
             'enable_remote' => true,

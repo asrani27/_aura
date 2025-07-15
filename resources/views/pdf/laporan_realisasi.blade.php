@@ -52,7 +52,7 @@
             <td>{{$item->pegawai == null ? null: $item->pegawai->nama}}</td>
             <td>{{$item->lokasi}}</td>
             <td>{{$item->keterangan}}</td>
-            <td>{{$item->okb == null ? null: $item->okb->hasil}}</td>
+            <td>{{$item->hasil}}</td>
         </tr>
         @endforeach
     </table>

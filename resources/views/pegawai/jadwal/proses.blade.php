@@ -71,7 +71,7 @@
             <tr>
               <td>2</td>
               <td width="40%">Menuju Lokasi </td>
-              <td>{{$data->tracking2 == null ? null : \Carbon\Carbon::parse($data->tracking1->created_at)->format('d M Y
+              <td>{{$data->tracking2 == null ? null : \Carbon\Carbon::parse($data->tracking2->created_at)->format('d M Y
                 H:i:s')}}</td>
               <td>
                 @if ($data->tracking2 == null)
@@ -85,7 +85,7 @@
             <tr>
               <td>3</td>
               <td width="40%">Tiba di Lokasi </td>
-              <td>{{$data->tracking3 == null ? null : \Carbon\Carbon::parse($data->tracking1->created_at)->format('d M Y
+              <td>{{$data->tracking3 == null ? null : \Carbon\Carbon::parse($data->tracking3->created_at)->format('d M Y
                 H:i:s')}}</td>
               <td>
                 @if ($data->tracking3 == null)
@@ -99,7 +99,7 @@
             <tr>
               <td>4</td>
               <td width="40%">Sedang input data OKB </td>
-              <td>{{$data->tracking4 == null ? null : \Carbon\Carbon::parse($data->tracking1->created_at)->format('d M Y
+              <td>{{$data->tracking4 == null ? null : \Carbon\Carbon::parse($data->tracking4->created_at)->format('d M Y
                 H:i:s')}}</td>
               <td>
                 @if ($data->tracking4 == null)
@@ -113,7 +113,7 @@
             <tr>
               <td>5</td>
               <td width="40%">Selesai input data OKB </td>
-              <td>{{$data->tracking5 == null ? null : \Carbon\Carbon::parse($data->tracking1->created_at)->format('d M Y
+              <td>{{$data->tracking5 == null ? null : \Carbon\Carbon::parse($data->tracking5->created_at)->format('d M Y
                 H:i:s')}}</td>
               <td>
                 @if ($data->tracking5 == null)
@@ -127,7 +127,7 @@
             <tr>
               <td>6</td>
               <td width="40%">Selesai</td>
-              <td>{{$data->tracking6 == null ? null : \Carbon\Carbon::parse($data->tracking1->created_at)->format('d M Y
+              <td>{{$data->tracking6 == null ? null : \Carbon\Carbon::parse($data->tracking6->created_at)->format('d M Y
                 H:i:s')}}</td>
               <td>
                 @if ($data->tracking6 == null)

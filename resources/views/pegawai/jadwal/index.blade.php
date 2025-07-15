@@ -50,7 +50,7 @@
                     @foreach ($item->tracking as $key => $tracking)
                     <tr>
                       <td>{{$tracking->status}}</td>
-                      <td>: {{\Carbon\Carbon::parse($item->created_at)->format('d M Y H:i:s')}}</td>
+                      <td>: {{\Carbon\Carbon::parse($tracking->created_at)->format('d M Y H:i:s')}}</td>
                     </tr>
                     @endforeach
                     @endif

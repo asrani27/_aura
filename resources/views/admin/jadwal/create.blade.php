@@ -64,16 +64,26 @@
         <select name="kelurahan" class="form-control" required>
             <option value="">-pilih-</option>
             <option value="Basirih Selatan">Basirih Selatan</option>
+             <option value="Kelayan Barat">Kelayan Barat</option>
             <option value="Kelayan Dalam">Kelayan Dalam</option>
             <option value="Kelayan Tengah">Kelayan Tengah</option>
             <option value="Kelayan Timur">Kelayan Timur</option>
             <option value="Kelayan Selatan">Kelayan Selatan</option>
             <option value="Mantuil">Mantuil</option>
+            <option value="Murung Raya">Murung Raya</option>
+            <option value="Pekauman">Pekauman</option>
+            <option value="Pemurus Baru">Pemurus Baru</option>
+            <option value="Pemurus Dalam">Pemurus Dalam</option>
+            <option value="Tanjung Pagar">Tanjung Pagar</option>
             <option value="Benua Anyar">Benua Anyar</option>
             <option value="Karang Mekar">Karang Mekar</option>
-            <option value="Kuripan">Kuripan</option>
             <option value="Kebun Bunga">Kebun Bunga</option>
+            <option value="Kuripan">Kuripan</option>
+            <option value="Pekauman Raya">Pekauman Raya</option>
             <option value="Pemurus Luar">Pemurus Luar</option>
+            <option value="Pengambangan">Pengambangan</option>
+            <option value="Sungai Bilu">Sungai Bilu</option>
+            <option value="Sungai Lulut">Sungai Lulut</option>
         </select>
     </div>
     <div class="form-group">

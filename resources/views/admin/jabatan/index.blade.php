@@ -30,7 +30,7 @@
             @foreach ($data as $key => $item)
             <tr>
               <td style="border: 1px solid black">{{1 + $key}}</td>
-              <td style="border: 1px solid black">{{$item->jabatan->nama_jabatan}}</td>
+              <td style="border: 1px solid black">{{$item->nama_jabatan}}</td>
               <td style="border: 1px solid black;display:flex">
                 <a href="/admin/data/jabatan/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i
                     class="fa fa-edit"></i></a>

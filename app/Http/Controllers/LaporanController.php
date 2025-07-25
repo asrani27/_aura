@@ -128,8 +128,8 @@ class LaporanController extends Controller
                 $item->hasil = $item->okb->first()?->hasil;
             }
             return $item;
-        });
-
+        })->where('hasil', '!=', null);
+        dd($data);
         $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_realisasi.pdf';
         $pdf = Pdf::loadView('pdf.laporan_realisasi', compact('data'))->setOption([
             'enable_remote' => true,
